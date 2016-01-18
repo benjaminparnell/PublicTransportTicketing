@@ -8,7 +8,7 @@ public class Location {
     private final float latitude;
     private final float longitude;
 
-    Location (float latitude, float longitude) {
+    public Location (float latitude, float longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
