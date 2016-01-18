@@ -9,6 +9,7 @@
 - JourneyList
 - ManagementUI
 - MoneySlot
+- PricingSystem
 - Route
 - RouteList
 - Scanner
