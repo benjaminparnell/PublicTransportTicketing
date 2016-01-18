@@ -50,7 +50,7 @@ public class Account {
     Journey createJourney(String start, String destination, Date startTime, Date endTime, String Transport){
         //TODO: Figure out what this should do && return
         //Not sure if start, destination and transport should be types, they do not seem to link on UML.
-
+        return new Journey();
     }
     
 }
