@@ -12,8 +12,8 @@ import java.util.Vector;
  *
  * @author Swapnull
  */
-public class JourneyList {
-    Vector allJourneys;
+public class JourneyList extends Vector {
+    JourneyList allJourneys;
     
     JourneyList(){
         
@@ -41,9 +41,9 @@ public class JourneyList {
         //This is the same class as Account.createJourney();
     }
     
-    Vector getTodaysJourneys(){
+    JourneyList getTodaysJourneys(){
         //TODO: Figure out what this should do && return
-        return new Vector();
+        return new JourneyList();
     } 
     
 }
