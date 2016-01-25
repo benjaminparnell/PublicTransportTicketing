@@ -44,16 +44,17 @@ public class AccountTest {
     /**
      * Test of getCurrentBalance method, of class Account.
      */
-//    @Test
-//    public void testGetCurrentBalance() {
-//        System.out.println("getCurrentBalance");
-//        Account instance = new Account();
-//        float expResult = 0.0F;
-//        float result = instance.getCurrentBalance();
-//        assertEquals(expResult, result, 0.0);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testGetCurrentBalance() {
+        System.out.println("getCurrentBalance");
+        
+        Account instance = new Account();
+        instance.currentBalance = 20.0f;
+        
+        float expResult = 20.0F;
+        float result = instance.getCurrentBalance();
+        assertEquals(expResult, result, 0.0);
+    }
 
     /**
      * Test of validateToken method, of class Account.
