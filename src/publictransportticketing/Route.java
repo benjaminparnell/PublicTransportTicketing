@@ -16,6 +16,10 @@ public class Route {
     Location finalDestination;
     StopList stopsOnRoute;
     
+    public Route(){
+        
+    }
+    
     Stop getLastStop(){
         //TODO: Figure out what this should do and return
         return new Stop("1", "stop", new Location((float) 1.1676, (float) 2.2), "stop type",new Zone("zone"));

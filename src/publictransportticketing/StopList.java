@@ -11,17 +11,27 @@ import java.util.Vector;
  *
  * @author Swapnull
  */
-public class StopList extends Vector {
-    StopList allStops;
+public class StopList {
+    Vector<Stop> allStops;
     
-    Stop findStop(){
-        //TODO: Figure out what this should do and return
-        return new Stop("1", "stop", new Location((float) 1.1676, (float) 2.2), "stop type",new Zone("zone"));
+    public StopList(){    
     }
     
-    StopList findStopByType(){
+    Stop findStop(String stopId){
         //TODO: Figure out what this should do and return
-        return this.allStops;
+        Stop stop = null;
+        for(int i = 0; i < allStops.size(); i++){
+            stop = allStops.get(i);
+            if(stop.stopId.equalsIgnoreCase(stopId)){
+                break;
+            }
+        }
+        return stop;
+    }
+    
+    Vector<Stop> findStopByType(){
+        //TODO: Figure out what this should do and return
+        return allStops;
     }
     
     
