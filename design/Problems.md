@@ -19,3 +19,8 @@ building it.
 ## Sequence Diagram Issues
 
 - In the **Add Money** sequence, to check for the validity of the `Token` they go to the `TokenList` and loop though it... I don't think we need it as we could just query the token directly if it is valid?
+
+## Methods Issues
+
+- Account Class
+  - `checkBalance` - parameter should be `float`
