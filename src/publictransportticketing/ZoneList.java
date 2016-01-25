@@ -11,11 +11,22 @@ import java.util.Vector;
  *
  * @author Swapnull
  */
-public class ZoneList extends Vector{
-    ZoneList zones;
+public class ZoneList{
+    Vector<Zone> zones;
     
-    Zone findZone(int zoneID){
-        //TODO: Figure out what this should do and return
-        return new Zone("zone");
+    ZoneList(){
+        super();
+    }
+    
+    Zone findZone(String zoneID){
+        //get a zone based on the zone ID.
+        Zone zone = null;
+        for(int i = 0; i < zones.size(); i++){
+            zone = zones.get(i);
+            if(zone.zoneName.equals(zoneID)){
+                break;
+            }
+        }
+        return zone;
     }
 }
