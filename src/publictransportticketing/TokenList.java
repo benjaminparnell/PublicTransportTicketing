@@ -11,9 +11,9 @@ import java.util.Vector;
  *
  * @author Swapnull
  */
-public class TokenList extends Vector {
+public class TokenList {
     //extended vector instead of having 'tokens' as a vector.
-    TokenList tokens;
+    Vector<Token> tokens;
     int tokenID;
     
     Token findToken(int tokenID){
@@ -22,8 +22,14 @@ public class TokenList extends Vector {
     }
     
     boolean isValid(Token token){
-        return token.getValid();
+        boolean validity = false;
+        
+        for (Token tokenCheck : tokens) {
+            if (tokenCheck.tokenID == token.tokenID) {
+                validity = tokenCheck.getValid();
+            }
+        }
+        
+        return validity;
     }
-    
-    
 }

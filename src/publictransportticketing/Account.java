@@ -22,6 +22,7 @@ public class Account {
     Date DOB;
     User person;
     JourneyList journeyList;
+    TokenList tokenList;
     
     Account(){
         //not actually in design but probably needed 
@@ -35,8 +36,8 @@ public class Account {
         return Math.round(this.currentBalance * 100) /100;
     }
     
-    void validateToken(Token token){
-        //TODO: Figure out what this should do && return
+    boolean validateToken(Token token){
+        return tokenList.isValid(token);
     }
     
     void updateToken(){
