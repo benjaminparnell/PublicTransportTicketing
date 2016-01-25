@@ -25,7 +25,8 @@ public class Account {
     TokenList tokenList;
     
     Account(){
-        //not actually in design but probably needed 
+        this.currentBalance = 0.0f;
+        this.journeyList = new JourneyList();
     }
     
     void getAccount(int accountID){
@@ -44,7 +45,7 @@ public class Account {
         //TODO: Figure out what this should do && return
     }
     
-    float checkBalance(int price){
+    float checkBalance(float price){
         return Math.round((this.currentBalance - price) * 100) / 100;
     }
     

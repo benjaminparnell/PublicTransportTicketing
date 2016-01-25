@@ -97,17 +97,17 @@ public class AccountTest {
     /**
      * Test of checkBalance method, of class Account.
      */
-//    @Test
-//    public void testCheckBalance() {
-//        System.out.println("checkBalance");
-//        int price = 0;
-//        Account instance = new Account();
-//        float expResult = 0.0F;
-//        float result = instance.checkBalance(price);
-//        assertEquals(expResult, result, 0.0);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void testCheckBalance() {
+        System.out.println("checkBalance");
+        float price = 0.0f;
+        
+        Account instance = new Account();
+        
+        float expResult = 0.0F;
+        float result = instance.checkBalance(price);
+        assertEquals(expResult, result, 0.0);
+    }
 
     /**
      * Test of createJourney method, of class Account.
