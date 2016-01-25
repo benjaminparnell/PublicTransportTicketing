@@ -61,14 +61,23 @@ public class AccountTest {
     @Test
     public void testValidateToken() {
         System.out.println("validateToken");
+        
         Token token = new Token();
+        token.tokenID = "token_id_test";
+        token.isValid = true;
+        
+        Token tokenInValid = new Token();
+        tokenInValid.tokenID = "token_id_test_inv";
+        tokenInValid.isValid = false;
+        
         TokenList tokenList = new TokenList();
-        tokenList.tokens.add(token);
+        tokenList.addToken(token);
+        tokenList.addToken(tokenInValid);
         
         Account instance = new Account();
         instance.tokenList = tokenList;
         
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.validateToken(token);
         assertEquals(expResult, result);
     }

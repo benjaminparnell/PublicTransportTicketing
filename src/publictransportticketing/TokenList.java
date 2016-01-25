@@ -36,4 +36,8 @@ public class TokenList {
         
         return validity;
     }
+    
+    void addToken(Token token) {
+        this.tokens.add(token);
+    }
 }

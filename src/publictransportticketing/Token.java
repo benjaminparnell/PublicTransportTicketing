@@ -12,7 +12,7 @@ import java.util.Date;
  * @author Swapnull
  */
 public class Token {
-    int tokenID; // added as there was no identifier yet it is used in TokenList.
+    String tokenID; // added as there was no identifier yet it is used in TokenList.
     String tokenType; // should be of type TokenType;
     Fare currentFare;
     int accountID;
