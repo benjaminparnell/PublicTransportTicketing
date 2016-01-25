@@ -10,5 +10,5 @@ package publictransportticketing;
  * @author Swapnull
  */
 public class Company {
-    String companyName;
+    String companyName;   
 }
