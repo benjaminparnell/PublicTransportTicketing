@@ -10,18 +10,21 @@ package publictransportticketing;
  * @author Swapnull
  */
 public class Route {
-    int routeID;
+    String routeID;
     String routeType;
     Location routeDestination;
     Location finalDestination;
     StopList stopsOnRoute;
     
-    public Route(){
-        
+    public Route(String routeID, String routeType, Location routeDestination, Location finalDestination, StopList stopsOnRoute){
+        this.routeID = routeID;
+        this.routeType = routeType;
+        this.routeDestination = routeDestination;
+        this.finalDestination = finalDestination;
+        this.stopsOnRoute = stopsOnRoute;
     }
     
     Stop getLastStop(){
-        //TODO: Figure out what this should do and return
-        return new Stop("1", "stop", new Location((float) 1.1676, (float) 2.2), "stop type",new Zone("zone"));
+        return this.stopsOnRoute.allStops.get((stopsOnRoute.allStops.size() - 1));
     }
 }

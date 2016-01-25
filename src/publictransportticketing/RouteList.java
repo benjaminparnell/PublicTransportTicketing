@@ -14,12 +14,16 @@ import java.util.Vector;
 public class RouteList{
     Vector<Route> routeList;
     
-    Route findRoute(int routeID){
+    RouteList(){
+        this.routeList = new Vector<Route>();
+    }
+    
+    Route findRoute(String routeID){
         Route route = null;
         
-        for(int i = 0; i < routeList.size(); i++){
-            route = routeList.get(i);
-            if(route.routeID == routeID){
+        for(int i = 0; i < this.routeList.size(); i++){
+            route = this.routeList.get(i);
+            if(route.routeID.equalsIgnoreCase(routeID)){
                 break;
             }
         }

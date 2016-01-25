@@ -14,14 +14,14 @@ import java.util.Vector;
 public class StopList {
     Vector<Stop> allStops;
     
-    public StopList(){    
+    public StopList(){  
+        this.allStops = new Vector<Stop>();
     }
     
     Stop findStop(String stopId){
-        //TODO: Figure out what this should do and return
         Stop stop = null;
-        for(int i = 0; i < allStops.size(); i++){
-            stop = allStops.get(i);
+        for(int i = 0; i < this.allStops.size(); i++){
+            stop = this.allStops.get(i);
             if(stop.stopId.equalsIgnoreCase(stopId)){
                 break;
             }
@@ -29,10 +29,17 @@ public class StopList {
         return stop;
     }
     
-    Vector<Stop> findStopByType(){
-        //TODO: Figure out what this should do and return
-        return allStops;
-    }
+    Vector<Stop> findStopByType(String type){
+        Stop stop = null;
+        Vector<Stop> stops = new Vector<Stop>();
+        for(int i = 0; i < this.allStops.size(); i++){
+            stop = this.allStops.get(i);
+            if(stop.stopType.equalsIgnoreCase(type)){
+                stops.add(stop);
+            }
+        }
+        return stops;
+   }
     
     
 }

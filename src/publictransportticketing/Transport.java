@@ -10,6 +10,11 @@ package publictransportticketing;
  * @author Swapnull
  */
 public class Transport {
-    int transportID;
+    String transportID;
     TransportType typeName;
+    
+    Transport(String transportID, TransportType typeName){
+        this.transportID = transportID;
+        this.typeName = typeName;
+    }
 }

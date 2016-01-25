@@ -15,7 +15,6 @@ public class User {
     String userType; //not sure if this should be a type?
        
     User(String name, String userType){
-        // not in design but added because probably needed
         this.name = name;
         this.userType = userType;
     }

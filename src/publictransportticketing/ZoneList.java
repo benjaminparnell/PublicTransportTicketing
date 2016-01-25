@@ -15,14 +15,14 @@ public class ZoneList{
     Vector<Zone> zones;
     
     ZoneList(){
-        super();
+        this.zones = new Vector<Zone>();
     }
     
     Zone findZone(String zoneID){
         //get a zone based on the zone ID.
         Zone zone = null;
-        for(int i = 0; i < zones.size(); i++){
-            zone = zones.get(i);
+        for(int i = 0; i < this.zones.size(); i++){
+            zone = this.zones.get(i);
             if(zone.zoneName.equals(zoneID)){
                 break;
             }

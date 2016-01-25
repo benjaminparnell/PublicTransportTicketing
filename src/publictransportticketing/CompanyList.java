@@ -16,7 +16,7 @@ public class CompanyList {
     
     Company findCompany(String companyName){
         Company company = null;
-        for(int i=0; i < companies.size(); i++){
+        for(int i=0; i < this.companies.size(); i++){
             company = companies.get(i);
             if(company.companyName.equalsIgnoreCase(companyName)){
                 break;
