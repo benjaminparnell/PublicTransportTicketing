@@ -16,6 +16,10 @@ public class TokenList {
     Vector<Token> tokens;
     int tokenID;
     
+    public TokenList () {
+        this.tokens = new Vector<Token>();
+    }
+    
     Token findToken(int tokenID){
         //TODO: Figure out what this should return
         return new Token(); 

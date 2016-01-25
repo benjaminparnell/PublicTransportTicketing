@@ -11,7 +11,7 @@ import java.util.Date;
  * @author Swapnull
  */
 public class Account {
-    int accountID;
+    String accountID;
     String accountName;
     String profileName;
     String occupation;
