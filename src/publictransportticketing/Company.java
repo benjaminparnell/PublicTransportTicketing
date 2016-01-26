@@ -10,5 +10,9 @@ package publictransportticketing;
  * @author Swapnull
  */
 public class Company {
-    String companyName;   
+    String companyName;  
+    
+    public Company(String name){
+        this.companyName = name;
+    }
 }

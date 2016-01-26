@@ -14,10 +14,13 @@ import java.util.Vector;
 public class CompanyList {
     Vector<Company> companies;
     
+    public CompanyList(){
+        this.companies = new Vector<Company>(); 
+    }
     Company findCompany(String companyName){
         Company company = null;
         for(int i=0; i < this.companies.size(); i++){
-            company = companies.get(i);
+            company = this.companies.get(i);
             if(company.companyName.equalsIgnoreCase(companyName)){
                 break;
             }
