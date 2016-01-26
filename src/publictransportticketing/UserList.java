@@ -37,7 +37,7 @@ public class UserList {
         
         for(int i = 0; i < this.users.size(); i++){
             user = this.users.get(i);
-            if(user.name.equalsIgnoreCase(name)){
+            if(user.name.toLowerCase().contains(name.toLowerCase())){
                 l_users.add(user);
             }
         }
@@ -51,7 +51,7 @@ public class UserList {
         
         for(int i = 0; i < this.users.size(); i++){
             user = this.users.get(i);
-            if(user.userType.equalsIgnoreCase(type)){
+            if(user.userType.toLowerCase().contains(type.toLowerCase())){
                 l_users.add(user);
             }
         }
