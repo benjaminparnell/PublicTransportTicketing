@@ -18,26 +18,6 @@ import static org.junit.Assert.*;
  * @author benp
  */
 public class JourneyListTest {
-    
-    public JourneyListTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of findJourney method, of class JourneyList.
      */
