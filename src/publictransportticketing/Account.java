@@ -5,7 +5,7 @@
  */
 package publictransportticketing;
 
-import java.util.Date;
+import org.joda.time.DateTime;
 /**
  *
  * @author Swapnull
@@ -19,7 +19,7 @@ public class Account {
     String accountActivationDate;
     String accountDeactivationDate;
     String address;
-    Date DOB;
+    DateTime DOB;
     User person;
     JourneyList journeyList;
     TokenList tokenList;
@@ -49,10 +49,10 @@ public class Account {
         return Math.round((this.currentBalance - price) * 100) / 100;
     }
     
-    Journey createJourney(String start, String destination, Date startTime, Date endTime, String Transport){
+    Journey createJourney(Location start, Location destination, DateTime startTime, DateTime endTime, Transport transport){
         //TODO: Figure out what this should do && return
         //Not sure if start, destination and transport should be types, they do not seem to link on UML.
-        return new Journey();
+        return new Journey(start, destination, startTime, endTime, transport);
     }
     
 }
