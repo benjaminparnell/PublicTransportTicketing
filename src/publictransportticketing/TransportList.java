@@ -12,15 +12,15 @@ import java.util.Vector;
  * @author Swapnull
  */
 public class TransportList {
-    Vector transportType;
+    Vector<TransportType> transportType;
     
     Transport findTransport(String name){
         //TODO: Figure out what this should do and return
-        return new Transport();
+        return new Transport("test", new TransportType());
     }
     
     Transport findTransportByID(String ID){
         //TODO: Figure out what this should do and return
-        return new Transport();
+        return new Transport("test", new TransportType());
     }
 }

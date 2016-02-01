@@ -11,30 +11,52 @@ import java.util.Vector;
  *
  * @author Swapnull
  */
-public class UserList extends Vector {
+public class UserList {
     //changed to extend vector instead of having Vector users;
     
-    UserList users; 
+    Vector<User> users; 
     
     UserList(){
-        
+       this.users = new Vector<User>();
     }
     
     User findUser(String userID){
-        //TODO: Figure out what this should return
-        return new User("Martyn Rushton", "Personal");
+        User user = null;
+        for(int i = 0; i < this.users.size(); i++){
+            user = this.users.get(i);
+            if(user.userID.equalsIgnoreCase(userID)){
+                return user;
+            }
+        }
+        return null; 
     }
     
-    UserList findUserByName(String name){
-        //returning UserList due to possibility of multiple users.
-        //TODO: Figure out what this should return
-        return this.users;
+    Vector<User> findUserByName(String name){
+        User user = null;
+        Vector<User> l_users = new Vector<User>();
+        
+        for(int i = 0; i < this.users.size(); i++){
+            user = this.users.get(i);
+            if(user.name.toLowerCase().contains(name.toLowerCase())){
+                l_users.add(user);
+            }
+        }
+        
+        return l_users;
     }
     
-    UserList findUserByType(String type){
-        //returning UserList due to possibility of multiple users
-        //TODO: Figure out what this should return.
-        return this.users;
+    Vector<User> findUserByType(String type){
+        User user = null;
+        Vector<User> l_users = new Vector<User>();
+        
+        for(int i = 0; i < this.users.size(); i++){
+            user = this.users.get(i);
+            if(user.userType.toLowerCase().contains(type.toLowerCase())){
+                l_users.add(user);
+            }
+        }
+        
+        return l_users;
     }
     
     

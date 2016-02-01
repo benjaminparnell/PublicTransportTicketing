@@ -14,8 +14,8 @@ public class User {
     String name;
     String userType; //not sure if this should be a type?
        
-    User(String name, String userType){
-        // not in design but added because probably needed
+    User(String userID, String name, String userType){
+        this.userID = userID;
         this.name = name;
         this.userType = userType;
     }

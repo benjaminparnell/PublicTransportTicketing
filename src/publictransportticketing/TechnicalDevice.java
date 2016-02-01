@@ -9,7 +9,7 @@ package publictransportticketing;
  *
  * @author Swapnull
  */
-public class technicalDevice {
+public class TechnicalDevice {
     String type;
     
     void login(){

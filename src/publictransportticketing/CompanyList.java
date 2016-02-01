@@ -11,11 +11,21 @@ import java.util.Vector;
  *
  * @author Swapnull
  */
-public class CompanyList extends Vector {
-    CompanyList companies;
+public class CompanyList {
+    Vector<Company> companies;
     
-    Company findCompany(){
-        //TODO: Figure out what this should do and return
-        return new Company();
+    public CompanyList(){
+        this.companies = new Vector<Company>(); 
+    }
+    
+    Company findCompany(String companyName){
+        Company company = null;
+        for(int i=0; i < this.companies.size(); i++){
+            company = this.companies.get(i);
+            if(company.companyName.equalsIgnoreCase(companyName)){
+                return company;
+            }
+        }
+        return null;
     }
 }

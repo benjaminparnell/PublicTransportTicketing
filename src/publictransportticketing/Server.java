@@ -19,7 +19,7 @@ public class Server {
     
     User getUser(String userID, String password){
         //TODO: Figure out what this should do and return
-        return new User("Martyn Rushton", "Personal");
+        return new User("100", "Martyn Rushton", "Personal");
     }
     
     Account getUserAccountDetails(){

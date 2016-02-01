@@ -11,11 +11,22 @@ import java.util.Vector;
  *
  * @author Swapnull
  */
-public class RouteList extends Vector{
-    RouteList routeList;
+public class RouteList{
+    Vector<Route> routeList;
     
-    Route findRoute(int routeID){
-        //TODO: Figure out what this should do and return
-        return new Route();
+    RouteList(){
+        this.routeList = new Vector<Route>();
+    }
+    
+    Route findRoute(String routeID){
+        Route route = null;
+        
+        for(int i = 0; i < this.routeList.size(); i++){
+            route = this.routeList.get(i);
+            if(route.routeID.equalsIgnoreCase(routeID)){
+                return route;
+            }
+        }
+        return null;
     }
 }
