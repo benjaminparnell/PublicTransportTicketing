@@ -5,34 +5,47 @@
  */
 package publictransportticketing;
 
-import java.util.Date;
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
 
 /**
  *
  * @author Swapnull
  */
 public class Journey {
-    int journeyID;
-    String start; // should probably be of type Stop
-    String destination; // should probably be of type Stop
-    Date startTime;
-    Date endTime;
-    String Transport; //should probably be of type Transport
+    String journeyID;
+    Location start; // should probably be of type Stop
+    Location destination; // should probably be of type Stop
+    DateTime startTime;
+    DateTime endTime;
+    Transport transport; //should probably be of type Transport
     
-    Journey(){
-        
+    Journey (Location start, Location destination, Transport transport) {
+        this.start = start;
+        this.destination = destination;
+        this.transport = transport;
+    }
+    
+    Journey (Location start, Location destination, DateTime startTime, DateTime endTime, Transport transport) {
+        this.start = start;
+        this.destination = destination;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.transport = transport;
     }
     
     void startJourney(){ 
-        this.startTime = new Date();
+        this.startTime = new DateTime();
     }
     
-    void getJourneyTime(){
-        //TODO: Figure out what this should do && return
+    Duration getJourneyTime(){
+        if (this.startTime != null && this.endTime != null) {
+            return new Duration(this.startTime, this.endTime);
+        }
+        return null;
     }
     
-    void updateJourneyDestination(String destination){
-        //TODO: Figure out what this should do && return
+    void updateJourneyDestination(Location destination){
         this.destination = destination;
     }
 }
