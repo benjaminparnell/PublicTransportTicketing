@@ -5,7 +5,6 @@
  */
 package publictransportticketing;
 
-import java.util.Date;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -109,24 +108,5 @@ public class AccountTest {
         float result = instance.checkBalance(price);
         assertEquals(expResult, result, 0.0);
     }
-
-    /**
-     * Test of createJourney method, of class Account.
-     */
-//    @Test
-//    public void testCreateJourney() {
-//        System.out.println("createJourney");
-//        String start = "";
-//        String destination = "";
-//        Date startTime = null;
-//        Date endTime = null;
-//        String Transport = "";
-//        Account instance = new Account();
-//        Journey expResult = null;
-//        Journey result = instance.createJourney(start, destination, startTime, endTime, Transport);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
     
 }
