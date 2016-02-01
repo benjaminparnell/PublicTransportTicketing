@@ -16,11 +16,11 @@ public class TransportList {
     
     Transport findTransport(String name){
         //TODO: Figure out what this should do and return
-        return new Transport("test", new TransportType());
+        return new Transport("test", new TransportType("Train"));
     }
     
     Transport findTransportByID(String ID){
         //TODO: Figure out what this should do and return
-        return new Transport("test", new TransportType());
+        return new Transport("test", new TransportType("Train"));
     }
 }

@@ -22,7 +22,7 @@ public class JourneyTest {
     @Test
     public void testStartJourney() {
         System.out.println("startJourney");
-        Journey instance = new Journey(new Location(1.2f, 1.2f), new Location(2.2f, 2.2f), new Transport());
+        Journey instance = new Journey(new Location(1.2f, 1.2f), new Location(2.2f, 2.2f), new Transport("1", new TransportType("Train")));
         instance.startJourney();
         assertTrue(instance.startTime instanceof DateTime);
     }
@@ -36,7 +36,7 @@ public class JourneyTest {
         DateTime start = new DateTime();
         DateTime end = new DateTime();
         Duration duration = new Duration(start, end);
-        Journey instance = new Journey(new Location(1.2f, 1.2f), new Location(2.2f, 2.2f), start, end, new Transport());
+        Journey instance = new Journey(new Location(1.2f, 1.2f), new Location(2.2f, 2.2f), start, end, new Transport("1", new TransportType("Train")));
         Duration result = instance.getJourneyTime();
         assertEquals(duration, result);
     }
@@ -48,7 +48,7 @@ public class JourneyTest {
     public void testUpdateJourneyDestination() {
         System.out.println("updateJourneyDestination");
         Location destination = new Location(5.5f, 5.5f);
-        Journey instance = new Journey(new Location(1.2f, 1.2f), new Location(2.2f, 2.2f), new Transport());;
+        Journey instance = new Journey(new Location(1.2f, 1.2f), new Location(2.2f, 2.2f), new Transport("1", new TransportType("Train")));;
         instance.updateJourneyDestination(destination);
         assertEquals(destination, instance.destination);
     }

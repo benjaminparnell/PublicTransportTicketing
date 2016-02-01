@@ -26,7 +26,7 @@ public class JourneyListTest {
         System.out.println("findJourney");
         String journeyID = "123";
         JourneyList instance = new JourneyList();
-        Journey expResult = new Journey(new Location(1.2f, 1.3f), new Location(1.3f, 1.4f), new Transport());
+        Journey expResult = new Journey(new Location(1.2f, 1.3f), new Location(1.3f, 1.4f), new Transport("1", new TransportType("Train")));
         expResult.journeyID = journeyID;
         instance.addJourney(expResult);
         Journey result = instance.findJourney(journeyID);
@@ -41,7 +41,7 @@ public class JourneyListTest {
         System.out.println("findJourney");
         DateTime date = new DateTime();
         JourneyList instance = new JourneyList();
-        Journey expResult = new Journey(new Location(1.2f, 1.3f), new Location (1.2f, 1.3f), date.minusHours(1), date, new Transport());
+        Journey expResult = new Journey(new Location(1.2f, 1.3f), new Location (1.2f, 1.3f), date.minusHours(1), date, new Transport("1", new TransportType("Train")));
         instance.addJourney(expResult);
         Journey result = instance.findJourney(date);
         assertEquals(expResult, result);
@@ -54,7 +54,7 @@ public class JourneyListTest {
     public void testGetMostRecentJourney() {
         System.out.println("getMostRecentJourney");
         JourneyList instance = new JourneyList();
-        Journey expResult = new Journey(new Location(1.2f, 1.3f), new Location(1.3f, 1.4f), new Transport());
+        Journey expResult = new Journey(new Location(1.2f, 1.3f), new Location(1.3f, 1.4f), new Transport("2", new TransportType("Bus")));
         expResult.startTime = new DateTime();
         expResult.endTime = new DateTime();
         instance.addJourney(expResult);
@@ -98,7 +98,7 @@ public class JourneyListTest {
         System.out.println("getTodaysJourneys");
         DateTime date = new DateTime();
         JourneyList instance = new JourneyList();
-        Journey journey = new Journey(new Location(1.2f, 1.3f), new Location (1.2f, 1.3f), date.minusHours(1), date, new Transport());
+        Journey journey = new Journey(new Location(1.2f, 1.3f), new Location (1.2f, 1.3f), date.minusHours(1), date, new Transport("1", new TransportType("Train")));
         instance.addJourney(journey);
         JourneyList result = instance.getTodaysJourneys();
         assertEquals(result.size(), 1);
