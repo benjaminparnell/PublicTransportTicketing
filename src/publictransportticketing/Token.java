@@ -5,7 +5,7 @@
  */
 package publictransportticketing;
 
-import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *
@@ -15,21 +15,21 @@ public class Token {
     String tokenID; // added as there was no identifier yet it is used in TokenList.
     String tokenType; // should be of type TokenType;
     Fare currentFare;
-    int accountID;
-    Date currentTokenStartTime;
-    Date currentTokenExpieryTime;
+    String accountID;
+    DateTime currentTokenStartTime;
+    DateTime currentTokenExpiryTime;
     boolean isValid;
     Journey currentJourney;
     
     Token(){
-        
+        this.isValid = false;
     }
     
     void getTokenDetails(){
         //TODO: Figure out what this should return
     }
     
-    int getAccountID(){
+    String getAccountID(){
         return this.accountID;
     }
     
