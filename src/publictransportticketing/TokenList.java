@@ -20,16 +20,21 @@ public class TokenList {
         this.tokens = new Vector<Token>();
     }
     
-    Token findToken(int tokenID){
-        //TODO: Figure out what this should return
-        return new Token(); 
+    Token findToken(String tokenID){
+        for (Token tokenCheck : tokens) {
+            if (tokenCheck.tokenID.equals(tokenID)) {
+                return tokenCheck;
+            }
+        }
+        
+        return null;
     }
     
     boolean isValid(Token token){
         boolean validity = false;
         
         for (Token tokenCheck : tokens) {
-            if (tokenCheck.tokenID == token.tokenID) {
+            if (tokenCheck.tokenID.equals(token.tokenID)) {
                 validity = tokenCheck.getValid();
             }
         }
