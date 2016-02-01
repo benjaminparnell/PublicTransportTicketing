@@ -25,10 +25,10 @@ public class UserList {
         for(int i = 0; i < this.users.size(); i++){
             user = this.users.get(i);
             if(user.userID.equalsIgnoreCase(userID)){
-                break;
+                return user;
             }
         }
-        return user; 
+        return null; 
     }
     
     Vector<User> findUserByName(String name){

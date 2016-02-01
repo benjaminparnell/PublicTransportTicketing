@@ -17,14 +17,15 @@ public class CompanyList {
     public CompanyList(){
         this.companies = new Vector<Company>(); 
     }
+    
     Company findCompany(String companyName){
         Company company = null;
         for(int i=0; i < this.companies.size(); i++){
             company = this.companies.get(i);
             if(company.companyName.equalsIgnoreCase(companyName)){
-                break;
+                return company;
             }
         }
-        return company;
+        return null;
     }
 }

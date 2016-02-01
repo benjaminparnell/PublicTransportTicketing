@@ -24,9 +24,9 @@ public class ZoneList{
         for(int i = 0; i < this.zones.size(); i++){
             zone = this.zones.get(i);
             if(zone.zoneName.equals(zoneID)){
-                break;
+                return zone;
             }
         }
-        return zone;
+        return null;
     }
 }

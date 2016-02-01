@@ -24,9 +24,9 @@ public class RouteList{
         for(int i = 0; i < this.routeList.size(); i++){
             route = this.routeList.get(i);
             if(route.routeID.equalsIgnoreCase(routeID)){
-                break;
+                return route;
             }
         }
-        return route;
+        return null;
     }
 }

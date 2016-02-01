@@ -23,10 +23,10 @@ public class StopList {
         for(int i = 0; i < this.allStops.size(); i++){
             stop = this.allStops.get(i);
             if(stop.stopId.equalsIgnoreCase(stopId)){
-                break;
+                return stop;
             }
         }
-        return stop;
+        return null;
     }
     
     Vector<Stop> findStopByType(String type){

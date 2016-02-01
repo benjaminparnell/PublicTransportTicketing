@@ -52,4 +52,17 @@ public class CompanyListTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testFindCompany_noresult(){
+        System.out.println("findCompany no result");
+        String companyName = "SHU";
+        CompanyList instance = new CompanyList();
+        Company expResult = null;
+        
+        instance.companies.add(new Company("IBM"));
+        instance.companies.add(new Company("Twitter"));
+        
+        Company result = instance.findCompany(companyName);
+        assertEquals(expResult, result);
+    }
 }
