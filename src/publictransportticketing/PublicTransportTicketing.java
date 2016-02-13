@@ -27,15 +27,15 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttonAddMoney = new javax.swing.JButton();
+        buttonAddNewFare = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Public Transport Ticketing");
 
-        jButton1.setText("Add Money");
+        buttonAddMoney.setText("Add Money");
 
-        jButton2.setText("Add New Fare");
+        buttonAddNewFare.setText("Add New Fare");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -43,9 +43,9 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addComponent(jButton1)
+                .addComponent(buttonAddMoney)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(buttonAddNewFare)
                 .addGap(61, 61, 61))
         );
         layout.setVerticalGroup(
@@ -53,8 +53,8 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(126, 126, 126)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(buttonAddMoney)
+                    .addComponent(buttonAddNewFare))
                 .addContainerGap(145, Short.MAX_VALUE))
         );
 
@@ -97,7 +97,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton buttonAddMoney;
+    private javax.swing.JButton buttonAddNewFare;
     // End of variables declaration//GEN-END:variables
 }
