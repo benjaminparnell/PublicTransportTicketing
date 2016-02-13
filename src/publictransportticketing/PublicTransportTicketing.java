@@ -32,6 +32,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Public Transport Ticketing");
+        setResizable(false);
 
         buttonAddMoney.setText("Add Money");
 
