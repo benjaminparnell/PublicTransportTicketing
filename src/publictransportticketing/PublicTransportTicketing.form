@@ -52,6 +52,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Add Money"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddMoneyActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonAddNewFare">
       <Properties>

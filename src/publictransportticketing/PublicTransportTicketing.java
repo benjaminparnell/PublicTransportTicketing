@@ -10,12 +10,14 @@ package publictransportticketing;
  * @author rowellheria
  */
 public class PublicTransportTicketing extends javax.swing.JFrame {
-
+    
+    private TerminalUI terminalUi;
     /**
      * Creates new form PublicTransportTicketing
      */
     public PublicTransportTicketing() {
         initComponents();
+        terminalUi = new TerminalUI();
     }
 
     /**
@@ -35,6 +37,11 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
         setResizable(false);
 
         buttonAddMoney.setText("Add Money");
+        buttonAddMoney.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddMoneyActionPerformed(evt);
+            }
+        });
 
         buttonAddNewFare.setText("Add New Fare");
 
@@ -61,6 +68,11 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonAddMoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddMoneyActionPerformed
+        // TODO add your handling code here:
+        terminalUi.setVisible(true);
+    }//GEN-LAST:event_buttonAddMoneyActionPerformed
 
     /**
      * @param args the command line arguments
