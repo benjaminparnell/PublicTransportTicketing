@@ -31,10 +31,11 @@ public class TerminalUI extends javax.swing.JFrame {
 
         panelTerminalScreen = new javax.swing.JPanel();
         panelDefaultScreen = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        panelRetrieveDetails = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        panelError = new javax.swing.JPanel();
+        labelDefaultScreen = new javax.swing.JLabel();
+        panelRetrieveDetailsScreen = new javax.swing.JPanel();
+        labelRetrieveDetailsScreen = new javax.swing.JLabel();
+        panelErrorScreen = new javax.swing.JPanel();
+        labelErrorScreen = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         buttonInsertCard = new javax.swing.JButton();
         buttonRemoveCard = new javax.swing.JButton();
@@ -48,9 +49,9 @@ public class TerminalUI extends javax.swing.JFrame {
         panelDefaultScreen.setBackground(new java.awt.Color(153, 204, 255));
         panelDefaultScreen.setName("panelDefaultScreen"); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Please insert your card below to begin");
+        labelDefaultScreen.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        labelDefaultScreen.setForeground(new java.awt.Color(255, 255, 255));
+        labelDefaultScreen.setText("Please insert your card below to begin");
 
         javax.swing.GroupLayout panelDefaultScreenLayout = new javax.swing.GroupLayout(panelDefaultScreen);
         panelDefaultScreen.setLayout(panelDefaultScreenLayout);
@@ -58,60 +59,70 @@ public class TerminalUI extends javax.swing.JFrame {
             panelDefaultScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDefaultScreenLayout.createSequentialGroup()
                 .addContainerGap(107, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(labelDefaultScreen)
                 .addGap(97, 97, 97))
         );
         panelDefaultScreenLayout.setVerticalGroup(
             panelDefaultScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDefaultScreenLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addGap(134, 134, 134)
+                .addComponent(labelDefaultScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         panelTerminalScreen.add(panelDefaultScreen, "panelDefaultScreen");
 
-        panelRetrieveDetails.setBackground(new java.awt.Color(255, 255, 255));
-        panelRetrieveDetails.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 0), 2, true));
-        panelRetrieveDetails.setName("panelRetrieveDetails"); // NOI18N
+        panelRetrieveDetailsScreen.setBackground(new java.awt.Color(255, 255, 255));
+        panelRetrieveDetailsScreen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0), 2));
+        panelRetrieveDetailsScreen.setName("panelRetrieveDetailsScreen"); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel3.setText("Retrieving Account Details");
+        labelRetrieveDetailsScreen.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        labelRetrieveDetailsScreen.setText("Retrieving Account Details");
 
-        javax.swing.GroupLayout panelRetrieveDetailsLayout = new javax.swing.GroupLayout(panelRetrieveDetails);
-        panelRetrieveDetails.setLayout(panelRetrieveDetailsLayout);
-        panelRetrieveDetailsLayout.setHorizontalGroup(
-            panelRetrieveDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRetrieveDetailsLayout.createSequentialGroup()
-                .addContainerGap(163, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(141, 141, 141))
+        javax.swing.GroupLayout panelRetrieveDetailsScreenLayout = new javax.swing.GroupLayout(panelRetrieveDetailsScreen);
+        panelRetrieveDetailsScreen.setLayout(panelRetrieveDetailsScreenLayout);
+        panelRetrieveDetailsScreenLayout.setHorizontalGroup(
+            panelRetrieveDetailsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRetrieveDetailsScreenLayout.createSequentialGroup()
+                .addContainerGap(162, Short.MAX_VALUE)
+                .addComponent(labelRetrieveDetailsScreen)
+                .addGap(142, 142, 142))
         );
-        panelRetrieveDetailsLayout.setVerticalGroup(
-            panelRetrieveDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRetrieveDetailsLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
-        );
-
-        panelTerminalScreen.add(panelRetrieveDetails, "panelRetrieveDetails");
-
-        panelError.setBackground(new java.awt.Color(255, 204, 204));
-        panelError.setName("panelError"); // NOI18N
-
-        javax.swing.GroupLayout panelErrorLayout = new javax.swing.GroupLayout(panelError);
-        panelError.setLayout(panelErrorLayout);
-        panelErrorLayout.setHorizontalGroup(
-            panelErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 535, Short.MAX_VALUE)
-        );
-        panelErrorLayout.setVerticalGroup(
-            panelErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 245, Short.MAX_VALUE)
+        panelRetrieveDetailsScreenLayout.setVerticalGroup(
+            panelRetrieveDetailsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRetrieveDetailsScreenLayout.createSequentialGroup()
+                .addGap(129, 129, 129)
+                .addComponent(labelRetrieveDetailsScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
-        panelTerminalScreen.add(panelError, "panelError");
+        panelTerminalScreen.add(panelRetrieveDetailsScreen, "panelRetrieveDetailsScreen");
+
+        panelErrorScreen.setBackground(new java.awt.Color(255, 204, 204));
+        panelErrorScreen.setName("panelErrorScreen"); // NOI18N
+
+        labelErrorScreen.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        labelErrorScreen.setForeground(new java.awt.Color(204, 0, 0));
+        labelErrorScreen.setText("Invalid Token");
+
+        javax.swing.GroupLayout panelErrorScreenLayout = new javax.swing.GroupLayout(panelErrorScreen);
+        panelErrorScreen.setLayout(panelErrorScreenLayout);
+        panelErrorScreenLayout.setHorizontalGroup(
+            panelErrorScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelErrorScreenLayout.createSequentialGroup()
+                .addGap(207, 207, 207)
+                .addComponent(labelErrorScreen)
+                .addContainerGap(212, Short.MAX_VALUE))
+        );
+        panelErrorScreenLayout.setVerticalGroup(
+            panelErrorScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelErrorScreenLayout.createSequentialGroup()
+                .addGap(132, 132, 132)
+                .addComponent(labelErrorScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(137, Short.MAX_VALUE))
+        );
+
+        panelTerminalScreen.add(panelErrorScreen, "panelErrorScreen");
 
         buttonInsertCard.setText("Insert Card");
         buttonInsertCard.addActionListener(new java.awt.event.ActionListener() {
@@ -121,6 +132,7 @@ public class TerminalUI extends javax.swing.JFrame {
         });
 
         buttonRemoveCard.setText("Remove Card");
+        buttonRemoveCard.setEnabled(false);
         buttonRemoveCard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonRemoveCardActionPerformed(evt);
@@ -151,7 +163,7 @@ public class TerminalUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(panelTerminalScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(125, 125, 125)
+                .addGap(54, 54, 54)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(buttonInsertCard)
@@ -165,12 +177,18 @@ public class TerminalUI extends javax.swing.JFrame {
 
     private void buttonInsertCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertCardActionPerformed
         CardLayout cl = (CardLayout)panelTerminalScreen.getLayout();
-        cl.show(panelTerminalScreen, panelRetrieveDetails.getName());
+        cl.show(panelTerminalScreen, panelRetrieveDetailsScreen.getName());
+        
+        buttonInsertCard.setEnabled(false);
+        buttonRemoveCard.setEnabled(true);
     }//GEN-LAST:event_buttonInsertCardActionPerformed
 
     private void buttonRemoveCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveCardActionPerformed
         CardLayout cl = (CardLayout)panelTerminalScreen.getLayout();
         cl.first(panelTerminalScreen);
+        
+        buttonInsertCard.setEnabled(true);
+        buttonRemoveCard.setEnabled(false);
     }//GEN-LAST:event_buttonRemoveCardActionPerformed
 
     /**
@@ -211,12 +229,13 @@ public class TerminalUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonInsertCard;
     private javax.swing.JButton buttonRemoveCard;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel labelDefaultScreen;
+    private javax.swing.JLabel labelErrorScreen;
+    private javax.swing.JLabel labelRetrieveDetailsScreen;
     private javax.swing.JPanel panelDefaultScreen;
-    private javax.swing.JPanel panelError;
-    private javax.swing.JPanel panelRetrieveDetails;
+    private javax.swing.JPanel panelErrorScreen;
+    private javax.swing.JPanel panelRetrieveDetailsScreen;
     private javax.swing.JPanel panelTerminalScreen;
     // End of variables declaration//GEN-END:variables
 }
