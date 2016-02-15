@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package publictransportticketing;
 
 /**
@@ -12,7 +7,7 @@ package publictransportticketing;
 public class ManagementLoginUI extends javax.swing.JFrame {
 
     private Server server;
-    
+
     /**
      * Creates new form ManagementUI
      * @param server
@@ -44,11 +39,27 @@ public class ManagementLoginUI extends javax.swing.JFrame {
                 userIdInputMouseClicked(evt);
             }
         });
+        userIdInput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                userIdInputFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                userIdInputFocusLost(evt);
+            }
+        });
 
         passwordInput.setText("Password");
         passwordInput.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 passwordInputMouseClicked(evt);
+            }
+        });
+        passwordInput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passwordInputFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passwordInputFocusLost(evt);
             }
         });
 
@@ -106,6 +117,7 @@ public class ManagementLoginUI extends javax.swing.JFrame {
         }
         
         this.setVisible(false);
+        new ManagementUI(this.server).setVisible(true);
     }//GEN-LAST:event_loginButtonActionPerformed
 
     void displayErrorMessage(String err) {
@@ -117,12 +129,40 @@ public class ManagementLoginUI extends javax.swing.JFrame {
     }
     
     private void userIdInputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userIdInputMouseClicked
-        this.userIdInput.setText("");
+        if (this.userIdInput.getText().equals("User ID")) {
+            this.userIdInput.setText("");
+        }
     }//GEN-LAST:event_userIdInputMouseClicked
 
     private void passwordInputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordInputMouseClicked
-        this.passwordInput.setText("");
+        if (this.passwordInput.getText().equals("Password")) {
+            this.passwordInput.setText("");
+        }
     }//GEN-LAST:event_passwordInputMouseClicked
+
+    private void userIdInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userIdInputFocusGained
+        if (this.userIdInput.getText().equals("User ID")) {
+            this.userIdInput.setText("");
+        }
+    }//GEN-LAST:event_userIdInputFocusGained
+
+    private void passwordInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordInputFocusGained
+        if (this.passwordInput.getText().equals("Password")) {
+            this.passwordInput.setText("");
+        }
+    }//GEN-LAST:event_passwordInputFocusGained
+
+    private void userIdInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userIdInputFocusLost
+       if (this.userIdInput.getText().equals("")) {
+           this.userIdInput.setText("User ID");
+       }
+    }//GEN-LAST:event_userIdInputFocusLost
+
+    private void passwordInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordInputFocusLost
+        if (this.passwordInput.getText().equals("")) {
+            this.passwordInput.setText("Password");
+        }
+    }//GEN-LAST:event_passwordInputFocusLost
 
     /**
      * @param args the command line arguments

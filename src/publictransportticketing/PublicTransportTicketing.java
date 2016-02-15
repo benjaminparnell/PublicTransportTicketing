@@ -13,8 +13,8 @@ import java.util.Vector;
  */
 public class PublicTransportTicketing extends javax.swing.JFrame {
 
-    private ManagementLoginUI managementUi;
-    private Server server;
+    private final ManagementLoginUI managementLoginUi;
+    private final Server server;
     
     /**
      * Creates new form PublicTransportTicketing
@@ -25,7 +25,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
         users.add(new User("bento", "Ben Parnell", "admin", "sea"));
         UserList userList = new UserList(users);
         this.server = new Server(userList);
-        this.managementUi = new ManagementLoginUI(this.server);
+        this.managementLoginUi = new ManagementLoginUI(this.server);
     }
 
     /**
@@ -77,8 +77,8 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAddNewFareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddNewFareActionPerformed
-        managementUi.setVisible(true);
         this.setVisible(false);
+        managementLoginUi.setVisible(true);
     }//GEN-LAST:event_buttonAddNewFareActionPerformed
 
     /**
@@ -110,6 +110,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new PublicTransportTicketing().setVisible(true);
             }

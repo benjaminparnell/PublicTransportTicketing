@@ -41,6 +41,10 @@ public class Server {
       return new Account();  
     }
     
+    public RouteList getAllRoutes() {
+        return this.allRoutes;
+    }
+    
     void calculateJourney(Token token, String start, String destination, Transport transport, Scanner scanner){
         //TODO: Figure out what this should do and return
     }

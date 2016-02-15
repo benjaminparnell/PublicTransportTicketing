@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jCheckBox1"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="saveButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="zoneThreeCheckbox" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="zoneSixCheckbox" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="zoneTwoCheckbox" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="ZoneFiveCheckbox" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="zoneOneCheckbox" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="zoneFourCheckbox" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="endHoursLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="endMinutesLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="endSecondsLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="endDatePicker" min="-2" max="-2" attributes="0"/>
+                  <Component id="endTimeLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="startTimeLabel" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="startHourSpinner" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="startMinuteSpinner" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="startSecondSpinner" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="startDatePicker" min="-2" max="-2" attributes="0"/>
+                  <Component id="transportLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="transportChoice" min="-2" pref="110" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="endHourSpinner" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="endMinuteSpinner" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="endHoursLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="endMinutesLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="endSecondSpinner" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="endSecondsLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="376" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="transportLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+              <Component id="transportChoice" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="startTimeLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="startDatePicker" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="endHoursLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="endMinutesLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="endSecondsLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="startHourSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="startMinuteSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="startSecondSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="endTimeLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="endDatePicker" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="endHoursLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="endMinutesLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="endSecondsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="endHourSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="endMinuteSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="endSecondSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="zoneOneCheckbox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="zoneFourCheckbox" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="zoneTwoCheckbox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ZoneFiveCheckbox" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="zoneThreeCheckbox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="zoneSixCheckbox" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="saveButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="java.awt.Choice" name="transportChoice">
+    </Component>
+    <Component class="java.awt.Label" name="transportLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Transport"/>
+      </Properties>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="startDatePicker">
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="endDatePicker">
+    </Component>
+    <Component class="javax.swing.JSpinner" name="startHourSpinner">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="23" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="startMinuteSpinner">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="59" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="startSecondSpinner">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="59" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="endHourSpinner">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="23" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="endMinuteSpinner">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="59" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="endSecondSpinner">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="59" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="startTimeLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Start Time"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="endTimeLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="End Time"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="endHoursLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hours"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="endMinutesLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Minutes"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="endSecondsLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Seconds"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="endHoursLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hours"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="endMinutesLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Minutes"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="endSecondsLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Seconds"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="zoneOneCheckbox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Zone 1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="zoneFourCheckbox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Zone 4"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="zoneTwoCheckbox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Zone 2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="ZoneFiveCheckbox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Zone 5"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="zoneThreeCheckbox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Zone 3"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="zoneSixCheckbox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Zone 6"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Zones"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="saveButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Save"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
