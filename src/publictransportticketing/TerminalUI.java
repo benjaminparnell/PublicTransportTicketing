@@ -5,6 +5,8 @@
  */
 package publictransportticketing;
 
+import java.awt.CardLayout;
+
 /**
  *
  * @author rowellheria
@@ -27,8 +29,12 @@ public class TerminalUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panelTerminalScreen = new javax.swing.JPanel();
+        panelDefaultScreen = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        panelRetrieveDetails = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        panelError = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         buttonInsertCard = new javax.swing.JButton();
         buttonRemoveCard = new javax.swing.JButton();
@@ -37,32 +43,89 @@ public class TerminalUI extends javax.swing.JFrame {
         setTitle("Terminal");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
+        panelTerminalScreen.setLayout(new java.awt.CardLayout());
+
+        panelDefaultScreen.setBackground(new java.awt.Color(153, 204, 255));
+        panelDefaultScreen.setName("panelDefaultScreen"); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Please insert your card to begin");
+        jLabel1.setText("Please insert your card below to begin");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(129, Short.MAX_VALUE)
+        javax.swing.GroupLayout panelDefaultScreenLayout = new javax.swing.GroupLayout(panelDefaultScreen);
+        panelDefaultScreen.setLayout(panelDefaultScreenLayout);
+        panelDefaultScreenLayout.setHorizontalGroup(
+            panelDefaultScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDefaultScreenLayout.createSequentialGroup()
+                .addContainerGap(107, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(124, 124, 124))
+                .addGap(97, 97, 97))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addComponent(jLabel1)
-                .addContainerGap(111, Short.MAX_VALUE))
+        panelDefaultScreenLayout.setVerticalGroup(
+            panelDefaultScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDefaultScreenLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(105, Short.MAX_VALUE))
         );
+
+        panelTerminalScreen.add(panelDefaultScreen, "panelDefaultScreen");
+
+        panelRetrieveDetails.setBackground(new java.awt.Color(255, 255, 255));
+        panelRetrieveDetails.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 0), 2, true));
+        panelRetrieveDetails.setName("panelRetrieveDetails"); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel3.setText("Retrieving Account Details");
+
+        javax.swing.GroupLayout panelRetrieveDetailsLayout = new javax.swing.GroupLayout(panelRetrieveDetails);
+        panelRetrieveDetails.setLayout(panelRetrieveDetailsLayout);
+        panelRetrieveDetailsLayout.setHorizontalGroup(
+            panelRetrieveDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRetrieveDetailsLayout.createSequentialGroup()
+                .addContainerGap(163, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(141, 141, 141))
+        );
+        panelRetrieveDetailsLayout.setVerticalGroup(
+            panelRetrieveDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRetrieveDetailsLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
+        );
+
+        panelTerminalScreen.add(panelRetrieveDetails, "panelRetrieveDetails");
+
+        panelError.setBackground(new java.awt.Color(255, 204, 204));
+        panelError.setName("panelError"); // NOI18N
+
+        javax.swing.GroupLayout panelErrorLayout = new javax.swing.GroupLayout(panelError);
+        panelError.setLayout(panelErrorLayout);
+        panelErrorLayout.setHorizontalGroup(
+            panelErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 535, Short.MAX_VALUE)
+        );
+        panelErrorLayout.setVerticalGroup(
+            panelErrorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 245, Short.MAX_VALUE)
+        );
+
+        panelTerminalScreen.add(panelError, "panelError");
 
         buttonInsertCard.setText("Insert Card");
+        buttonInsertCard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonInsertCardActionPerformed(evt);
+            }
+        });
 
         buttonRemoveCard.setText("Remove Card");
+        buttonRemoveCard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRemoveCardActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,27 +134,23 @@ public class TerminalUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(buttonRemoveCard)))
-                        .addContainerGap())
+                    .addComponent(jSeparator1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(483, 483, 483)
-                        .addComponent(buttonInsertCard, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonRemoveCard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonInsertCard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelTerminalScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelTerminalScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(125, 125, 125)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
@@ -103,6 +162,16 @@ public class TerminalUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonInsertCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertCardActionPerformed
+        CardLayout cl = (CardLayout)panelTerminalScreen.getLayout();
+        cl.show(panelTerminalScreen, panelRetrieveDetails.getName());
+    }//GEN-LAST:event_buttonInsertCardActionPerformed
+
+    private void buttonRemoveCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveCardActionPerformed
+        CardLayout cl = (CardLayout)panelTerminalScreen.getLayout();
+        cl.first(panelTerminalScreen);
+    }//GEN-LAST:event_buttonRemoveCardActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,7 +212,11 @@ public class TerminalUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonInsertCard;
     private javax.swing.JButton buttonRemoveCard;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel panelDefaultScreen;
+    private javax.swing.JPanel panelError;
+    private javax.swing.JPanel panelRetrieveDetails;
+    private javax.swing.JPanel panelTerminalScreen;
     // End of variables declaration//GEN-END:variables
 }
