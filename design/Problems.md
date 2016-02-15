@@ -10,6 +10,8 @@ building it.
 - Account has an address, an occupation and a date of birth. The User class
     should have all of these things.
 - Account didn't have access to `TokenList`. Added it so we can validate a `Token`.
+- ManagementUI shouldn't really be in charge of login **and** other stuff. Added
+    ManagementLoginUI to get round this.
 
 ## Incorrect types
 
