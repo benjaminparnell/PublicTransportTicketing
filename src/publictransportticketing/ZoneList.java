@@ -29,4 +29,11 @@ public class ZoneList{
         }
         return null;
     }
+    
+    boolean checkIfExists(Zone zone){
+        if(zones.contains(zone)){
+            return true;
+        }
+        return false;
+    }
 }

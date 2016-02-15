@@ -21,7 +21,10 @@ public class Token {
     boolean isValid;
     Journey currentJourney;
     
-    Token(){
+    Token(String tokenID, String tokenType, String accountID){
+        this.tokenID = tokenID;
+        this.tokenType = tokenType;
+        this.accountID = accountID;
         this.isValid = false;
     }
     

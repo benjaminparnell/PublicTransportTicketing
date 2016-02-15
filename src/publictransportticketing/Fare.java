@@ -7,23 +7,27 @@ package publictransportticketing;
 
 import java.util.Date;
 import java.util.Vector;
+import org.joda.time.DateTime;
+
 
 /**
  *
  * @author Swapnull
  */
 public class Fare {
-    String ticketName;
-    Vector transport; //should probably be type TransportList;
-    Vector zones; // should probably be type ZoneList
+    String fareID;
+    TransportList transport;
+    ZoneList zones;
     int stopCount;
     float price;
-    Date startTime;
-    Date endTime;
+    DateTime startTime;
+    DateTime endTime;
     String tokenType; //should be of type TokenType, which does not exist on uml.
     
-    Fare(){
-        
+    Fare(String fareID, TransportList transport, ZoneList zones){
+        this.fareID = fareID;
+        this.transport = transport;
+        this.zones = zones;
     }
     
     boolean checkFare(JourneyList journeyList){
