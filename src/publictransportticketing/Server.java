@@ -29,7 +29,6 @@ public class Server {
             throw new UserNotFoundException("No user could be found with that id.");
         }
         
-        System.out.println(user.validateLogin(password));
         if (user.validateLogin(password) == false) {
             throw new WrongPasswordException("Looks like that password was incorrect. Please try again.");
         }
