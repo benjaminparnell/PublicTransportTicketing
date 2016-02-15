@@ -17,6 +17,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
      */
     public PublicTransportTicketing() {
         initComponents();
+        this.setLocationRelativeTo(null);
         terminalUi = new TerminalUI();
     }
 

@@ -12,12 +12,16 @@ import java.awt.CardLayout;
  * @author rowellheria
  */
 public class TerminalUI extends javax.swing.JFrame {
-
+    
+    private CardLayout cardLayout;
     /**
      * Creates new form TerminalUI
      */
     public TerminalUI() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
+        cardLayout = (CardLayout)panelTerminalScreen.getLayout();
     }
 
     /**
@@ -36,6 +40,7 @@ public class TerminalUI extends javax.swing.JFrame {
         labelRetrieveDetailsScreen = new javax.swing.JLabel();
         panelErrorScreen = new javax.swing.JPanel();
         labelErrorScreen = new javax.swing.JLabel();
+        panelUserDetailsScreen = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         buttonInsertCard = new javax.swing.JButton();
         buttonRemoveCard = new javax.swing.JButton();
@@ -124,6 +129,22 @@ public class TerminalUI extends javax.swing.JFrame {
 
         panelTerminalScreen.add(panelErrorScreen, "panelErrorScreen");
 
+        panelUserDetailsScreen.setBackground(new java.awt.Color(204, 204, 204));
+        panelUserDetailsScreen.setName("panelUserDetailsScreen"); // NOI18N
+
+        javax.swing.GroupLayout panelUserDetailsScreenLayout = new javax.swing.GroupLayout(panelUserDetailsScreen);
+        panelUserDetailsScreen.setLayout(panelUserDetailsScreenLayout);
+        panelUserDetailsScreenLayout.setHorizontalGroup(
+            panelUserDetailsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 535, Short.MAX_VALUE)
+        );
+        panelUserDetailsScreenLayout.setVerticalGroup(
+            panelUserDetailsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 316, Short.MAX_VALUE)
+        );
+
+        panelTerminalScreen.add(panelUserDetailsScreen, "panelUserDetailsScreen");
+
         buttonInsertCard.setText("Insert Card");
         buttonInsertCard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,16 +197,14 @@ public class TerminalUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonInsertCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertCardActionPerformed
-        CardLayout cl = (CardLayout)panelTerminalScreen.getLayout();
-        cl.show(panelTerminalScreen, panelRetrieveDetailsScreen.getName());
+        cardLayout.show(panelTerminalScreen, panelRetrieveDetailsScreen.getName());
         
         buttonInsertCard.setEnabled(false);
         buttonRemoveCard.setEnabled(true);
     }//GEN-LAST:event_buttonInsertCardActionPerformed
 
     private void buttonRemoveCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveCardActionPerformed
-        CardLayout cl = (CardLayout)panelTerminalScreen.getLayout();
-        cl.first(panelTerminalScreen);
+        cardLayout.first(panelTerminalScreen);
         
         buttonInsertCard.setEnabled(true);
         buttonRemoveCard.setEnabled(false);
@@ -237,5 +256,6 @@ public class TerminalUI extends javax.swing.JFrame {
     private javax.swing.JPanel panelErrorScreen;
     private javax.swing.JPanel panelRetrieveDetailsScreen;
     private javax.swing.JPanel panelTerminalScreen;
+    private javax.swing.JPanel panelUserDetailsScreen;
     // End of variables declaration//GEN-END:variables
 }
