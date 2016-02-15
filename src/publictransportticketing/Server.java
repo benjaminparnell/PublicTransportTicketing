@@ -12,14 +12,29 @@ package publictransportticketing;
 public class Server {
     UserInterface userInterface;
     RouteList allRoutes;
+    public UserList users;
+    
+    public Server (UserList users) {
+        this.users = users;
+    }
     
     void validateDetails(){
         
     }
     
-    User getUser(String userID, String password){
-        //TODO: Figure out what this should do and return
-        return new User("100", "Martyn Rushton", "Personal");
+    User getUser(String userID, String password) throws UserNotFoundException, WrongPasswordException {
+        User user = this.users.findUser(userID);
+        
+        if (user == null) {
+            throw new UserNotFoundException("No user could be found with that id.");
+        }
+        
+        System.out.println(user.validateLogin(password));
+        if (user.validateLogin(password) == false) {
+            throw new WrongPasswordException("Looks like that password was incorrect. Please try again.");
+        }
+        
+        return user;
     }
     
     Account getUserAccountDetails(){
