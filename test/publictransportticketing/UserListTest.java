@@ -46,7 +46,7 @@ public class UserListTest {
         System.out.println("findUser");
         String userID = "100";
         UserList instance = new UserList();
-        User expResult = new User("100", "Martyn Rushton", "Personal");
+        User expResult = new User("100", "Martyn Rushton", "Personal", "pass");
         instance.users.add(expResult);
         
         //run
@@ -66,9 +66,9 @@ public class UserListTest {
         Vector<User> expResult = new Vector<User>();
         
         //create users
-        User user1 = new User("100", "David Smith", "Personal");
-        User user2 = new User("200", "John Smith", "Business");
-        User user3 = new User("300", "John Davidson", "Student");
+        User user1 = new User("100", "David Smith", "Personal", "pass");
+        User user2 = new User("200", "John Smith", "Business", "pass");
+        User user3 = new User("300", "John Davidson", "Student", "pass");
         
         //add to instance
         instance.users.add(user1);
@@ -98,10 +98,10 @@ public class UserListTest {
         Vector<User> expResult = new Vector<User>();
         
         //create users
-        User user1 = new User("100", "David Smith", "Personal");
-        User user2 = new User("200", "John Smith", "Business");
-        User user3 = new User("300", "John Davidson", "Student");
-        User user4 = new User("400", "Mark Jacobson", "Personal");
+        User user1 = new User("100", "David Smith", "Personal", "pass");
+        User user2 = new User("200", "John Smith", "Business", "pass");
+        User user3 = new User("300", "John Davidson", "Student", "pass");
+        User user4 = new User("400", "Mark Jacobson", "Personal", "pass");
 
         
         //add to instance
