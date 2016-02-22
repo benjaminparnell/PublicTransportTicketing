@@ -29,9 +29,8 @@ public class JourneyListTest {
         
         Stop start = new Stop("100", "Sheffield", new Location(1.2f, 1.3f), "Train", new Zone("1"));
         Stop dest = new Stop("200", "Darnall", new Location(2.4f, 5.5f), "Bus", new Zone("3"));
-
-
         Journey expResult = new Journey(start, dest, new Transport("748", new TransportType("bus")));
+        
         expResult.journeyID = journeyID;
         instance.addJourney(expResult);
         Journey result = instance.findJourney(journeyID);

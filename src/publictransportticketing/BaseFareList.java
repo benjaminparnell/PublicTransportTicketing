@@ -35,7 +35,7 @@ public class BaseFareList {
         
         for(int i = 0; i < this.fareList.size(); i++){
             fare = this.fareList.get(i);
-            if(fare.zones.checkIfExists(journey.start.zone) && fare.zones.checkIfExists(journey.start.zone)){
+            if((fare.zones.findZone(journey.start.zone.zoneName) != null) && (fare.zones.findZone(journey.destination.zone.zoneName) != null)){
                 // Start zone and Destination Zone both exist in the fares zone range
                 validFares.add(fare);
             }
@@ -43,8 +43,7 @@ public class BaseFareList {
         return validFares;
     }
     
-    void addBaseFare(TransportList transport, ZoneList zones){
-        //TODO: Change "1" to use ID generation when completed 
-        fareList.add(new Fare("1", transport, zones));
+    void addBaseFare(String id, TransportList transport, ZoneList zones){
+        fareList.add(new Fare(id, transport, zones));
     }
 }
