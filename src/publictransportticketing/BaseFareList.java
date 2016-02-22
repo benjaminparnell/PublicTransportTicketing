@@ -5,7 +5,6 @@
  */
 package publictransportticketing;
 
-import java.util.Date;
 import java.util.Vector;
 
 /**
@@ -20,7 +19,7 @@ public class BaseFareList {
     }
     
     Fare findFair(String fareID){
-        Fare fare = null;
+        Fare fare;
         for(int i = 0; i < this.fareList.size(); i++){
             fare = this.fareList.get(i);
             if(fare.fareID.equalsIgnoreCase(fareID)){
@@ -31,7 +30,7 @@ public class BaseFareList {
     }
     
     Vector<Fare> getValidFares(Journey journey){
-        Fare fare = null;
+        Fare fare;
         Vector<Fare> validFares = new Vector<Fare>();
         
         for(int i = 0; i < this.fareList.size(); i++){
@@ -45,6 +44,7 @@ public class BaseFareList {
     }
     
     void addBaseFare(TransportList transport, ZoneList zones){
+        //TODO: Change "1" to use ID generation when completed 
         fareList.add(new Fare("1", transport, zones));
     }
 }

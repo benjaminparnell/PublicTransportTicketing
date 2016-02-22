@@ -5,8 +5,6 @@
  */
 package publictransportticketing;
 
-import java.util.Date;
-import java.util.Vector;
 import org.joda.time.DateTime;
 
 

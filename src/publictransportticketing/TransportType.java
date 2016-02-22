@@ -11,4 +11,8 @@ package publictransportticketing;
  */
 public class TransportType {
     String typeName;
+    
+    TransportType(String name){
+        this.typeName = name;
+    }
 }

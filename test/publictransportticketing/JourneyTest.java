@@ -22,7 +22,11 @@ public class JourneyTest {
     @Test
     public void testStartJourney() {
         System.out.println("startJourney");
-        Journey instance = new Journey(new Location(1.2f, 1.2f), new Location(2.2f, 2.2f), new Transport());
+        
+        Stop start = new Stop("100", "Sheffield", new Location(1.2f, 1.3f), "Train", new Zone("1"));
+        Stop dest = new Stop("200", "Darnall", new Location(2.4f, 5.5f), "Bus", new Zone("3"));
+        Journey instance = new Journey(start, dest, new Transport("748", new TransportType("bus")));
+
         instance.startJourney();
         assertTrue(instance.startTime instanceof DateTime);
     }
@@ -36,7 +40,11 @@ public class JourneyTest {
         DateTime start = new DateTime();
         DateTime end = new DateTime();
         Duration duration = new Duration(start, end);
-        Journey instance = new Journey(new Location(1.2f, 1.2f), new Location(2.2f, 2.2f), start, end, new Transport());
+
+        Stop startStop = new Stop("100", "Sheffield", new Location(1.2f, 1.3f), "Train", new Zone("1"));
+        Stop destStop = new Stop("200", "Darnall", new Location(2.4f, 5.5f), "Bus", new Zone("3"));
+        Journey instance = new Journey(startStop, destStop, new Transport("748", new TransportType("bus")));
+
         Duration result = instance.getJourneyTime();
         assertEquals(duration, result);
     }
@@ -48,8 +56,13 @@ public class JourneyTest {
     public void testUpdateJourneyDestination() {
         System.out.println("updateJourneyDestination");
         Location destination = new Location(5.5f, 5.5f);
-        Journey instance = new Journey(new Location(1.2f, 1.2f), new Location(2.2f, 2.2f), new Transport());;
-        instance.updateJourneyDestination(destination);
+
+        Stop start = new Stop("100", "Sheffield", new Location(1.2f, 1.3f), "Train", new Zone("1"));
+        Stop dest = new Stop("200", "Darnall", new Location(2.4f, 5.5f), "Bus", new Zone("3"));
+        Journey instance = new Journey(start, dest, new Transport("748", new TransportType("bus")));
+
+
+        instance.updateJourneyDestination(dest);
         assertEquals(destination, instance.destination);
     }
     
