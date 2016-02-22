@@ -43,7 +43,7 @@ public class JourneyTest {
 
         Stop startStop = new Stop("100", "Sheffield", new Location(1.2f, 1.3f), "Train", new Zone("1"));
         Stop destStop = new Stop("200", "Darnall", new Location(2.4f, 5.5f), "Bus", new Zone("3"));
-        Journey instance = new Journey(startStop, destStop, new Transport("748", new TransportType("bus")));
+        Journey instance = new Journey(startStop, destStop, start, end, new Transport("748", new TransportType("bus")));
 
         Duration result = instance.getJourneyTime();
         assertEquals(duration, result);
@@ -55,14 +55,14 @@ public class JourneyTest {
     @Test
     public void testUpdateJourneyDestination() {
         System.out.println("updateJourneyDestination");
-        Location destination = new Location(5.5f, 5.5f);
+        Stop destination = new Stop("150", "Pontefract", new Location(0.2f, 0.3f), "Train", new Zone("1"));
 
         Stop start = new Stop("100", "Sheffield", new Location(1.2f, 1.3f), "Train", new Zone("1"));
         Stop dest = new Stop("200", "Darnall", new Location(2.4f, 5.5f), "Bus", new Zone("3"));
         Journey instance = new Journey(start, dest, new Transport("748", new TransportType("bus")));
 
 
-        instance.updateJourneyDestination(dest);
+        instance.updateJourneyDestination(destination);
         assertEquals(destination, instance.destination);
     }
     
