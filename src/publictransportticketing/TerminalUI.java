@@ -19,6 +19,7 @@ public class TerminalUI extends javax.swing.JFrame {
     private Token validToken;
     private Token invalidToken;
     private Server server;
+    private Account foundAccount;
     /**
      * Creates new form TerminalUI
      */
@@ -56,6 +57,11 @@ public class TerminalUI extends javax.swing.JFrame {
         panelErrorScreen = new javax.swing.JPanel();
         labelErrorScreen = new javax.swing.JLabel();
         panelUserDetailsScreen = new javax.swing.JPanel();
+        labelWelcomeName = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        buttonShowBalance = new javax.swing.JButton();
+        buttonUpdateBalance = new javax.swing.JButton();
+        buttonReturnCard = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         buttonInsertCard = new javax.swing.JButton();
         buttonRemoveCard = new javax.swing.JButton();
@@ -154,15 +160,71 @@ public class TerminalUI extends javax.swing.JFrame {
         panelUserDetailsScreen.setBackground(new java.awt.Color(204, 204, 204));
         panelUserDetailsScreen.setName("panelUserDetailsScreen"); // NOI18N
 
+        labelWelcomeName.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        labelWelcomeName.setText("Welcome");
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel1.setText("Please select and option below");
+
+        buttonShowBalance.setBackground(new java.awt.Color(102, 204, 255));
+        buttonShowBalance.setForeground(new java.awt.Color(255, 255, 255));
+        buttonShowBalance.setText("Show Balance");
+        buttonShowBalance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShowBalanceActionPerformed(evt);
+            }
+        });
+
+        buttonUpdateBalance.setBackground(new java.awt.Color(102, 204, 255));
+        buttonUpdateBalance.setForeground(new java.awt.Color(255, 255, 255));
+        buttonUpdateBalance.setText("Update Balance");
+        buttonUpdateBalance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUpdateBalanceActionPerformed(evt);
+            }
+        });
+
+        buttonReturnCard.setBackground(new java.awt.Color(255, 51, 0));
+        buttonReturnCard.setForeground(new java.awt.Color(255, 255, 255));
+        buttonReturnCard.setText("Return Card");
+        buttonReturnCard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonReturnCardActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelUserDetailsScreenLayout = new javax.swing.GroupLayout(panelUserDetailsScreen);
         panelUserDetailsScreen.setLayout(panelUserDetailsScreenLayout);
         panelUserDetailsScreenLayout.setHorizontalGroup(
             panelUserDetailsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 535, Short.MAX_VALUE)
+            .addGroup(panelUserDetailsScreenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelUserDetailsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelWelcomeName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUserDetailsScreenLayout.createSequentialGroup()
+                .addContainerGap(202, Short.MAX_VALUE)
+                .addGroup(panelUserDetailsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonReturnCard, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonUpdateBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonShowBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(199, 199, 199))
         );
         panelUserDetailsScreenLayout.setVerticalGroup(
             panelUserDetailsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 316, Short.MAX_VALUE)
+            .addGroup(panelUserDetailsScreenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelWelcomeName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buttonShowBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonUpdateBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonReturnCard, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         panelTerminalScreen.add(panelUserDetailsScreen, "panelUserDetailsScreen");
@@ -295,12 +357,20 @@ public class TerminalUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonInsertCardActionPerformed
 
     private void buttonRemoveCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveCardActionPerformed
-        cardLayout.first(panelTerminalScreen);
-        
-        buttonInsertCard.setEnabled(true);
-        buttonRemoveCard.setEnabled(false);
-        toggleCoinButtons(false);
+        returnCard();
     }//GEN-LAST:event_buttonRemoveCardActionPerformed
+
+    private void buttonShowBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowBalanceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonShowBalanceActionPerformed
+
+    private void buttonUpdateBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateBalanceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonUpdateBalanceActionPerformed
+
+    private void buttonReturnCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReturnCardActionPerformed
+        returnCard();
+    }//GEN-LAST:event_buttonReturnCardActionPerformed
 
     private void retrieveTokenDetails() {
         Token tokenToUse = checkBoxInvalidToken.isSelected() 
@@ -308,15 +378,15 @@ public class TerminalUI extends javax.swing.JFrame {
                 : validToken;
         
         String accountId = tokenToUse.getAccountID();
-        Account account = server.findAccount(accountId);
+        foundAccount = server.findAccount(accountId);
         
-        if (account != null) {
-            Boolean isTokenValid = server.validateToken(account, tokenToUse);
+        if (foundAccount != null) {
+            Boolean isTokenValid = server.validateToken(foundAccount, tokenToUse);
             
             if (isTokenValid) {
-                cardLayout.show(panelTerminalScreen, panelUserDetailsScreen.getName());
-                
+                showOptions(foundAccount.profileName);
                 toggleCoinButtons(true);
+                buttonInsertCard.setEnabled(false);
             } else {
                 cardLayout.show(panelTerminalScreen, panelErrorScreen.getName());
             }
@@ -327,8 +397,12 @@ public class TerminalUI extends javax.swing.JFrame {
     
     private Account createNewAccount() {
         Account account = new Account();
+        User user = new User(UniqueID.generate(), "Rowell", "Personal");
+        
         account.accountID = UniqueID.generate();
         account.accountName = "SAMPLE_ACCOUNT_NAME";
+        account.person = user;
+        account.profileName = user.name;
         
         return account;
     }
@@ -342,6 +416,20 @@ public class TerminalUI extends javax.swing.JFrame {
         buttonTwentyPence.setEnabled(enabled);
         buttonTwoPounds.setEnabled(enabled);
     }
+    
+    private void showOptions(String userName) {
+        labelWelcomeName.setText("Welcome " + userName);
+        cardLayout.show(panelTerminalScreen, panelUserDetailsScreen.getName());
+    }
+    
+    private void returnCard() {
+        cardLayout.first(panelTerminalScreen);
+        
+        buttonInsertCard.setEnabled(true);
+        buttonRemoveCard.setEnabled(false);
+        toggleCoinButtons(false);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -382,14 +470,19 @@ public class TerminalUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonInsertCard;
     private javax.swing.JButton buttonOnePounds;
     private javax.swing.JButton buttonRemoveCard;
+    private javax.swing.JButton buttonReturnCard;
+    private javax.swing.JButton buttonShowBalance;
     private javax.swing.JButton buttonTenPence;
     private javax.swing.JButton buttonTwentyPence;
     private javax.swing.JButton buttonTwoPounds;
+    private javax.swing.JButton buttonUpdateBalance;
     private javax.swing.JCheckBox checkBoxInvalidToken;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelDefaultScreen;
     private javax.swing.JLabel labelErrorScreen;
     private javax.swing.JLabel labelRetrieveDetailsScreen;
+    private javax.swing.JLabel labelWelcomeName;
     private javax.swing.JPanel panelCoins;
     private javax.swing.JPanel panelDefaultScreen;
     private javax.swing.JPanel panelErrorScreen;
