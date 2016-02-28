@@ -10,6 +10,7 @@ building it.
 - Account has an address, an occupation and a date of birth. The User class
     should have all of these things.
 - Account didn't have access to `TokenList`. Added it so we can validate a `Token`.
+- Server didn't have `AccountList`.
 
 ## Incorrect types
 
@@ -24,3 +25,5 @@ building it.
 
 - Account Class
   - `checkBalance` - parameter should be `float`
+- Server Class
+  - `findAccount` - missing
