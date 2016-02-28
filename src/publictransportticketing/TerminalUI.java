@@ -33,7 +33,10 @@ public class TerminalUI extends javax.swing.JFrame {
         
         invalidToken = new Token("TOKEN_ID_2", "CARD", userAccount.accountID);
         
+        userAccount.tokenList.addToken(validToken);
+        
         server = new Server();
+        server.allAccounts.addAccount(userAccount);
     }
 
     /**
@@ -62,6 +65,7 @@ public class TerminalUI extends javax.swing.JFrame {
         buttonFiftyPence = new javax.swing.JButton();
         buttonTwentyPence = new javax.swing.JButton();
         buttonTenPence = new javax.swing.JButton();
+        checkBoxInvalidToken = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Terminal");
@@ -221,6 +225,8 @@ public class TerminalUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        checkBoxInvalidToken.setText("Invalid Token");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -234,7 +240,10 @@ public class TerminalUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(buttonRemoveCard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonInsertCard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(checkBoxInvalidToken)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonInsertCard, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
@@ -251,7 +260,9 @@ public class TerminalUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(buttonInsertCard)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonInsertCard)
+                            .addComponent(checkBoxInvalidToken))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonRemoveCard)
                         .addGap(24, 24, 24))
@@ -286,14 +297,17 @@ public class TerminalUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonRemoveCardActionPerformed
 
     private void retrieveTokenDetails() {
-        String accountId = invalidToken.getAccountID();
+        Token tokenToUse = checkBoxInvalidToken.isSelected() 
+                ? invalidToken
+                : validToken;
         
+        String accountId = tokenToUse.getAccountID();
         Account account = server.findAccount(accountId);
         
         if (account != null) {
-            Boolean validToken = server.validateToken(account, invalidToken);
+            Boolean isTokenValid = server.validateToken(account, tokenToUse);
             
-            if (validToken) {
+            if (isTokenValid) {
                 cardLayout.show(panelTerminalScreen, panelUserDetailsScreen.getName());
             } else {
                 cardLayout.show(panelTerminalScreen, panelErrorScreen.getName());
@@ -353,6 +367,7 @@ public class TerminalUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonTenPence;
     private javax.swing.JButton buttonTwentyPence;
     private javax.swing.JButton buttonTwoPounds;
+    private javax.swing.JCheckBox checkBoxInvalidToken;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelDefaultScreen;
     private javax.swing.JLabel labelErrorScreen;
