@@ -10,14 +10,24 @@ package publictransportticketing;
  * @author Swapnull
  */
 public class Scanner {
-    int scannerID;
+    String scannerID;
     Location location;
-    Route currentRoute;
-    String scannerType;
+    // Route currentRoute; Information stored on the token, no need for it here
+    String scannerType; // should contain "static" or "portable". 
+    Token token; //added this otherwise the class is pointless
     
-    void scanToken(){
-    //TODO: Figure out what this should do and return    
+    Scanner(String scannerID, Location location, String scannerType){
+        this.scannerID = scannerID;
+        this.location = location;
+        this.scannerType = scannerType;
     }
+    
+    void scanToken(Token token){
+        this.token = token;
+    }
+    
+    /*
+    None of these should be here. They are all details which are stored on the token. 
     
     void getJourneyStart(){
         //TODO: Figure out what this should do and return
@@ -29,14 +39,15 @@ public class Scanner {
     
     void getTimestamp(){
         //TODO: Figure out what this should do and return
-    }
+    }*/ 
     
     Location getScannerLocation(){
         return this.location;
     }
     
+    /*
     Route getRoute(){
         return this.currentRoute;
-    }
+    }*/
     
 }

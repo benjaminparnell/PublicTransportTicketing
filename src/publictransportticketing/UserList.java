@@ -25,7 +25,7 @@ public class UserList {
     }
     
     public User findUser(String userID){
-        User user = null;
+        User user;
         for(int i = 0; i < this.users.size(); i++){
             user = this.users.get(i);
             if(user.userID.equalsIgnoreCase(userID)){
@@ -36,7 +36,7 @@ public class UserList {
     }
     
     public Vector<User> findUserByName(String name){
-        User user = null;
+        User user;
         Vector<User> l_users = new Vector<User>();
         
         for(int i = 0; i < this.users.size(); i++){
@@ -50,8 +50,8 @@ public class UserList {
     }
     
     public Vector<User> findUserByType(String type){
-        User user = null;
         Vector<User> l_users = new Vector<User>();
+        User user;
         
         for(int i = 0; i < this.users.size(); i++){
             user = this.users.get(i);

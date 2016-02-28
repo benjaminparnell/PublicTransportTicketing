@@ -13,7 +13,7 @@ import org.joda.time.DateTime;
  */
 public class Token {
     String tokenID; // added as there was no identifier yet it is used in TokenList.
-    String tokenType; // should be of type TokenType;
+    String tokenType;
     Fare currentFare;
     String accountID;
     DateTime currentTokenStartTime;
@@ -21,7 +21,10 @@ public class Token {
     boolean isValid;
     Journey currentJourney;
     
-    Token(){
+    Token(String tokenID, String tokenType, String accountID){
+        this.tokenID = tokenID;
+        this.tokenType = tokenType;
+        this.accountID = accountID;
         this.isValid = false;
     }
     
