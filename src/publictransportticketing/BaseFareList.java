@@ -49,12 +49,13 @@ public class BaseFareList {
     }
     
     /**
-     * Turns the params into a Fare object and adds them to the internal fareList.
+     * Pass through to java.util.Vector
      * @param id
      * @param transport
      * @param zones 
+     * @return boolean
      */
-    void addBaseFare(String id, TransportList transport, ZoneList zones){
-        fareList.add(new Fare(id, transport, zones));
+    boolean addBaseFare(Fare fare){
+        return fareList.add(fare);
     }
 }

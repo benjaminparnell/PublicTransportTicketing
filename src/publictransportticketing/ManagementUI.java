@@ -269,8 +269,11 @@ public class ManagementUI extends javax.swing.JFrame {
        
        TransportList transports = new TransportList();
        transports.addTransport(new Transport(UniqueID.generate(), new TransportType(transport)));
+       Fare fare = new Fare(UniqueID.generate(), transports, zones);
+       fare.startTime = start;
+       fare.endTime = end;
        
-       this.server.ListOfFares.addBaseFare(UniqueID.generate(), transports, zones);
+       this.server.ListOfFares.addBaseFare(fare);
     }//GEN-LAST:event_saveButtonActionPerformed
     
     
