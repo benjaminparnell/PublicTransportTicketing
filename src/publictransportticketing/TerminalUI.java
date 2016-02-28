@@ -70,6 +70,10 @@ public class TerminalUI extends javax.swing.JFrame {
         buttonUpdateBalance = new javax.swing.JButton();
         buttonReturnCard = new javax.swing.JButton();
         panelShowBalance = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        labelCurrentBalance = new javax.swing.JLabel();
+        buttonReturnToDetails = new javax.swing.JButton();
         panelUpdateBalance = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -248,15 +252,59 @@ public class TerminalUI extends javax.swing.JFrame {
         panelShowBalance.setBackground(new java.awt.Color(204, 204, 204));
         panelShowBalance.setName("panelShowBalance"); // NOI18N
 
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel5.setText("Show Balance");
+
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel6.setText("Your balance is");
+
+        labelCurrentBalance.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        labelCurrentBalance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelCurrentBalance.setText("£0.00");
+        labelCurrentBalance.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        buttonReturnToDetails.setBackground(new java.awt.Color(0, 204, 0));
+        buttonReturnToDetails.setForeground(new java.awt.Color(255, 255, 255));
+        buttonReturnToDetails.setText("Confirm");
+        buttonReturnToDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonReturnToDetailsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelShowBalanceLayout = new javax.swing.GroupLayout(panelShowBalance);
         panelShowBalance.setLayout(panelShowBalanceLayout);
         panelShowBalanceLayout.setHorizontalGroup(
             panelShowBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 535, Short.MAX_VALUE)
+            .addGroup(panelShowBalanceLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelShowBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelShowBalanceLayout.createSequentialGroup()
+                        .addGroup(panelShowBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelShowBalanceLayout.createSequentialGroup()
+                        .addGap(0, 63, Short.MAX_VALUE)
+                        .addComponent(labelCurrentBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelShowBalanceLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonReturnToDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
         panelShowBalanceLayout.setVerticalGroup(
             panelShowBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 316, Short.MAX_VALUE)
+            .addGroup(panelShowBalanceLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(labelCurrentBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(buttonReturnToDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
 
         panelTerminalScreen.add(panelShowBalance, "panelShowBalance");
@@ -271,7 +319,8 @@ public class TerminalUI extends javax.swing.JFrame {
         jLabel2.setText("Inserted");
 
         textFieldUpdateBalance.setEditable(false);
-        textFieldUpdateBalance.setText("0.00");
+        textFieldUpdateBalance.setText("£0.00");
+        textFieldUpdateBalance.setToolTipText("");
 
         buttonConfirmUpdate.setBackground(new java.awt.Color(0, 204, 0));
         buttonConfirmUpdate.setForeground(new java.awt.Color(255, 255, 255));
@@ -514,7 +563,14 @@ public class TerminalUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonRemoveCardActionPerformed
 
     private void buttonShowBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowBalanceActionPerformed
-        // TODO add your handling code here:
+        DecimalFormat df = new DecimalFormat("£0.00");
+        df.setRoundingMode(RoundingMode.CEILING);
+        df.setCurrency(Currency.getInstance(Locale.UK));
+        
+        float currentFloat = foundAccount.getCurrentBalance();
+        
+        labelCurrentBalance.setText(df.format(currentFloat));
+        cardLayout.show(panelTerminalScreen, panelShowBalance.getName());
     }//GEN-LAST:event_buttonShowBalanceActionPerformed
 
     private void buttonUpdateBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateBalanceActionPerformed
@@ -531,7 +587,7 @@ public class TerminalUI extends javax.swing.JFrame {
         
         foundAccount.updateBalance(totalInserted);
         toggleCoinButtons(false);
-        textFieldUpdateBalance.setText("0.00");
+        textFieldUpdateBalance.setText("£0.00");
         moneySlot.dispenseChange();
         
         cardLayout.show(panelTerminalScreen, panelUpdateBalanceOk.getName());
@@ -547,7 +603,7 @@ public class TerminalUI extends javax.swing.JFrame {
     private void buttonCancelUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelUpdateActionPerformed
         showOptions(foundAccount.profileName);
         toggleCoinButtons(false);
-        textFieldUpdateBalance.setText("0.00");
+        textFieldUpdateBalance.setText("£0.00");
         moneySlot.dispenseChange();
     }//GEN-LAST:event_buttonCancelUpdateActionPerformed
 
@@ -570,6 +626,10 @@ public class TerminalUI extends javax.swing.JFrame {
     private void buttonTenPenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTenPenceActionPerformed
         coinInserted(0.10f);
     }//GEN-LAST:event_buttonTenPenceActionPerformed
+
+    private void buttonReturnToDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReturnToDetailsActionPerformed
+        showOptions(foundAccount.profileName);
+    }//GEN-LAST:event_buttonReturnToDetailsActionPerformed
 
     private void retrieveTokenDetails() {
         Token tokenToUse = checkBoxInvalidToken.isSelected() 
@@ -623,6 +683,8 @@ public class TerminalUI extends javax.swing.JFrame {
         buttonInsertCard.setEnabled(true);
         buttonRemoveCard.setEnabled(false);
         toggleCoinButtons(false);
+        
+        foundAccount = null;
     }
     
     private void coinInserted(float value) {
@@ -630,7 +692,7 @@ public class TerminalUI extends javax.swing.JFrame {
         
         float amount = moneySlot.checkAmount();
         
-        DecimalFormat df = new DecimalFormat("0.00");
+        DecimalFormat df = new DecimalFormat("£0.00");
         df.setRoundingMode(RoundingMode.CEILING);
         df.setCurrency(Currency.getInstance(Locale.UK));
         
@@ -680,6 +742,7 @@ public class TerminalUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonOnePounds;
     private javax.swing.JButton buttonRemoveCard;
     private javax.swing.JButton buttonReturnCard;
+    private javax.swing.JButton buttonReturnToDetails;
     private javax.swing.JButton buttonShowBalance;
     private javax.swing.JButton buttonTenPence;
     private javax.swing.JButton buttonTwentyPence;
@@ -690,7 +753,10 @@ public class TerminalUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel labelCurrentBalance;
     private javax.swing.JLabel labelDefaultScreen;
     private javax.swing.JLabel labelErrorScreen;
     private javax.swing.JLabel labelRetrieveDetailsScreen;
