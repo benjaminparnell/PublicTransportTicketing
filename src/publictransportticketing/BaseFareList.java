@@ -12,13 +12,13 @@ import java.util.Vector;
  * @author Swapnull
  */
 public class BaseFareList {
-    Vector<Fare> fareList;
+    public Vector<Fare> fareList;
     
-    BaseFareList(){
+   public  BaseFareList(){
         fareList = new Vector<Fare>();
     }
     
-    Fare findFair(String fareID){
+    public Fare findFair(String fareID){
         Fare fare;
         for(int i = 0; i < this.fareList.size(); i++){
             fare = this.fareList.get(i);
@@ -29,7 +29,7 @@ public class BaseFareList {
         return null; 
     }
     
-    Vector<Fare> getValidFares(Journey journey){
+    public Vector<Fare> getValidFares(Journey journey){
         Fare fare;
         Vector<Fare> validFares = new Vector<Fare>();
         

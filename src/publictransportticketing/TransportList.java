@@ -7,15 +7,22 @@ import java.util.Vector;
  * @author Swapnull
  */
 public class TransportList {
-    Vector<Transport> transport;
+    public Vector<Transport> transports;
     
-    Transport findTransport(String name){
-        //TODO: Figure out what this should do and return
-        return new Transport("test", new TransportType("bus"));
+    public TransportList() {
+        this.transports = new Vector<Transport>();
     }
     
-    Transport findTransportByID(String ID){
-        //TODO: Figure out what this should do and return
-        return new Transport("test", new TransportType("train"));
+    public Transport findTransportByID(String ID){
+        for (Transport aTransport : this.transports) {
+            if (aTransport.transportID.equals(ID)) {
+                return aTransport;
+            }
+        }
+        return null;
+    }
+    
+    public boolean addTransport(Transport transport) {
+        return this.transports.add(transport);
     }
 }

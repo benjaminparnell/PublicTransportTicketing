@@ -1,6 +1,9 @@
 package publictransportticketing;
 
 import java.util.Date;
+import java.util.Vector;
+import javax.swing.JCheckBox;
+import org.joda.time.DateTime;
 
 /**
  *
@@ -9,6 +12,7 @@ import java.util.Date;
 public class ManagementUI extends javax.swing.JFrame {
 
     private final Server server;
+    private final Vector<JCheckBox> zoneCheckBoxes;
     
     /**
      * Creates new form ManagementUI
@@ -18,6 +22,14 @@ public class ManagementUI extends javax.swing.JFrame {
         initComponents();
         this.server = server;
         this.setupUi();
+        this.zoneCheckBoxes = new Vector<JCheckBox>();
+        this.zoneCheckBoxes.add(this.zoneOneCheckbox);
+        this.zoneCheckBoxes.add(this.zoneTwoCheckbox);
+        this.zoneCheckBoxes.add(this.zoneThreeCheckbox);
+        this.zoneCheckBoxes.add(this.zoneFourCheckbox);
+        this.zoneCheckBoxes.add(this.ZoneFiveCheckbox);
+        this.zoneCheckBoxes.add(this.zoneSixCheckbox);
+        
     }
     
     private void setupUi() {
@@ -235,17 +247,47 @@ public class ManagementUI extends javax.swing.JFrame {
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         String transport = this.transportChoice.getSelectedItem();
         
-        Date startDate = this.startDatePicker.getDate();
+        Date baseStartDate = this.startDatePicker.getDate();
         Integer startTimeHour = (Integer) this.startHourSpinner.getValue();
         Integer startTimeMinute = (Integer) this.startMinuteSpinner.getValue();
         Integer startTimeSecond = (Integer) this.startSecondSpinner.getValue();
         
-        Date endDate = this.endDatePicker.getDate();
+        Date baseEndDate = this.endDatePicker.getDate();
         Integer endTimeHour = (Integer) this.endHourSpinner.getValue();
         Integer endTimeMinute = (Integer) this.endMinuteSpinner.getValue();
         Integer endTimeSecond = (Integer) this.endSecondSpinner.getValue();
+        
+       DateTime start = new DateTime(baseStartDate).withTime(startTimeHour, startTimeMinute, startTimeSecond, 0);
+       
+       DateTime end = new DateTime(baseEndDate).withTime(endTimeHour, endTimeMinute, endTimeSecond, 0);
+       
+       // TODO: No error handling here to see if start > end or end < start
+       
+       ZoneList zones = this.getSelectedZones();
+       
+       // TODO: check to see if zones is empty
+       
+       TransportList transports = new TransportList();
+       transports.addTransport(new Transport(UniqueID.generate(), new TransportType(transport)));
+       
+       this.server.ListOfFares.addBaseFare(UniqueID.generate(), transports, zones);
     }//GEN-LAST:event_saveButtonActionPerformed
-
+    
+    
+    private ZoneList getSelectedZones() {
+        ZoneList zones = new ZoneList();
+        
+        for (JCheckBox checkbox : this.zoneCheckBoxes) {
+            if (checkbox.isSelected()) {
+                int index = this.zoneCheckBoxes.indexOf(checkbox);
+                Zone zone = new Zone("Zone " + index);
+                zones.addZone(zone);
+            }
+        }
+        
+        return zones;
+    }
+    
     /**
      * @param args the command line arguments
      */

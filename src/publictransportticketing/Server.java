@@ -5,16 +5,14 @@ package publictransportticketing;
  * @author Swapnull
  */
 public class Server {
-    UserInterface userInterface;
-    RouteList allRoutes;
+    public UserInterface userInterface;
+    public RouteList allRoutes;
+    public BaseFareList ListOfFares;
     public UserList users;
     
     public Server (UserList users) {
         this.users = users;
-    }
-    
-    void validateDetails(){
-        
+        this.ListOfFares = new BaseFareList();
     }
     
     User getUser(String userID, String password) throws UserNotFoundException, WrongPasswordException {
