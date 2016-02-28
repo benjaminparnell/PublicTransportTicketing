@@ -109,7 +109,8 @@ public class BaseFareListTest {
         TransportList transport = new TransportList();
         ZoneList zones = new ZoneList();
         BaseFareList instance = new BaseFareList();
-        instance.addBaseFare(id, transport, zones);
+        Fare fare = new Fare(id, transport, zones);
+        instance.addBaseFare(fare);
         
         assertEquals(instance.fareList.get(0).fareID, id);
     }

@@ -5,17 +5,27 @@
  */
 package publictransportticketing;
 
+import java.util.Vector;
+
 /**
  *
  * @author rowellheria
  */
 public class PublicTransportTicketing extends javax.swing.JFrame {
 
+    private final ManagementLoginUI managementLoginUi;
+    private final Server server;
+    
     /**
      * Creates new form PublicTransportTicketing
      */
     public PublicTransportTicketing() {
         initComponents();
+        Vector<User> users = new Vector<User>();
+        users.add(new User("bento", "Ben Parnell", "admin", "sea"));
+        UserList userList = new UserList(users);
+        this.server = new Server(userList);
+        this.managementLoginUi = new ManagementLoginUI(this.server, this);
     }
 
     /**
@@ -36,6 +46,11 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
         jButton1.setText("Add Money");
 
         jButton2.setText("Add New Fare");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddNewFareActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,6 +75,11 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonAddNewFareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddNewFareActionPerformed
+        this.setVisible(false);
+        managementLoginUi.setVisible(true);
+    }//GEN-LAST:event_buttonAddNewFareActionPerformed
 
     /**
      * @param args the command line arguments
@@ -90,6 +110,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new PublicTransportTicketing().setVisible(true);
             }
