@@ -12,6 +12,12 @@ package publictransportticketing;
 public class Server {
     UserInterface userInterface;
     RouteList allRoutes;
+    AccountList allAccounts;
+    
+    Server() {
+        allRoutes = new RouteList();
+        allAccounts = new AccountList();
+    }
     
     void validateDetails(){
         
@@ -35,4 +41,7 @@ public class Server {
         //TODO: Figure out what this should do and return
     }
     
+    Account findAccount(String accountId) {
+        return this.allAccounts.findAccount(accountId);
+    }
 }
