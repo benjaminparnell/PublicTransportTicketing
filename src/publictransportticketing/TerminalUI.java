@@ -47,6 +47,9 @@ public class TerminalUI extends javax.swing.JFrame {
         panelCoins = new javax.swing.JPanel();
         buttonTwoPounds = new javax.swing.JButton();
         buttonOnePounds = new javax.swing.JButton();
+        buttonFiftyPence = new javax.swing.JButton();
+        buttonTwentyPence = new javax.swing.JButton();
+        buttonTenPence = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Terminal");
@@ -167,15 +170,27 @@ public class TerminalUI extends javax.swing.JFrame {
 
         buttonOnePounds.setText("£1");
 
+        buttonFiftyPence.setText("50p");
+
+        buttonTwentyPence.setText("20p");
+
+        buttonTenPence.setText("10p");
+
         javax.swing.GroupLayout panelCoinsLayout = new javax.swing.GroupLayout(panelCoins);
         panelCoins.setLayout(panelCoinsLayout);
         panelCoinsLayout.setHorizontalGroup(
             panelCoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCoinsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(buttonTwoPounds, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelCoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(buttonTenPence, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(panelCoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(buttonFiftyPence, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                        .addComponent(buttonTwoPounds, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonOnePounds, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelCoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonOnePounds, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonTwentyPence, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCoinsLayout.setVerticalGroup(
@@ -185,7 +200,13 @@ public class TerminalUI extends javax.swing.JFrame {
                 .addGroup(panelCoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTwoPounds)
                     .addComponent(buttonOnePounds))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonFiftyPence)
+                    .addComponent(buttonTwentyPence))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonTenPence)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -281,9 +302,12 @@ public class TerminalUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonFiftyPence;
     private javax.swing.JButton buttonInsertCard;
     private javax.swing.JButton buttonOnePounds;
     private javax.swing.JButton buttonRemoveCard;
+    private javax.swing.JButton buttonTenPence;
+    private javax.swing.JButton buttonTwentyPence;
     private javax.swing.JButton buttonTwoPounds;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelDefaultScreen;

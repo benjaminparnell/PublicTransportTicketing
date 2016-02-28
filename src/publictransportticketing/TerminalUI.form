@@ -276,9 +276,18 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="buttonTwoPounds" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="buttonTenPence" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="buttonFiftyPence" alignment="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="buttonTwoPounds" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="buttonOnePounds" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="buttonOnePounds" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="buttonTwentyPence" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -291,7 +300,14 @@
                       <Component id="buttonTwoPounds" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="buttonOnePounds" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="buttonFiftyPence" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonTwentyPence" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="buttonTenPence" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -305,6 +321,21 @@
         <Component class="javax.swing.JButton" name="buttonOnePounds">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xa3;1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonFiftyPence">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="50p"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonTwentyPence">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="20p"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonTenPence">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="10p"/>
           </Properties>
         </Component>
       </SubComponents>
