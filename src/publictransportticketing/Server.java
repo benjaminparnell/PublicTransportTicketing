@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package publictransportticketing;
 
 /**
@@ -10,27 +5,40 @@ package publictransportticketing;
  * @author Swapnull
  */
 public class Server {
-    UserInterface userInterface;
-    RouteList allRoutes;
-    AccountList allAccounts;
+    public UserInterface userInterface;
+    public RouteList allRoutes;
+    public BaseFareList ListOfFares;
+    public UserList users;
+    public AccountList allAccounts;
     
-    Server() {
-        allRoutes = new RouteList();
-        allAccounts = new AccountList();
+    public Server (UserList users) {
+        this.users = users;
+        this.ListOfFares = new BaseFareList();
+        this.allRoutes = new RouteList();
+        this.allAccounts = new AccountList();
     }
     
-    void validateDetails(){
+    User getUser(String userID, String password) throws UserNotFoundException, WrongPasswordException {
+        User user = this.users.findUser(userID);
         
-    }
-    
-    User getUser(String userID, String password){
-        //TODO: Figure out what this should do and return
-        return new User("100", "Martyn Rushton", "Personal");
+        if (user == null) {
+            throw new UserNotFoundException("No user could be found with that id.");
+        }
+        
+        if (user.validateLogin(password) == false) {
+            throw new WrongPasswordException("Looks like that password was incorrect. Please try again.");
+        }
+        
+        return user;
     }
     
     Account getUserAccountDetails(){
       //TODO: Figure out what this should do and return
       return new Account();  
+    }
+    
+    public RouteList getAllRoutes() {
+        return this.allRoutes;
     }
     
     void calculateJourney(Token token, String start, String destination, Transport transport, Scanner scanner){

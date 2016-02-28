@@ -5,13 +5,19 @@
  */
 package publictransportticketing;
 
+import java.util.Vector;
+
 /**
  *
  * @author rowellheria
  */
 public class PublicTransportTicketing extends javax.swing.JFrame {
-    
+
     private TerminalUI terminalUi;
+
+    private final ManagementLoginUI managementLoginUi;
+    private final Server server;
+
     /**
      * Creates new form PublicTransportTicketing
      */
@@ -19,6 +25,11 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         terminalUi = new TerminalUI();
+        Vector<User> users = new Vector<User>();
+        users.add(new User("bento", "Ben Parnell", "admin", "sea"));
+        UserList userList = new UserList(users);
+        this.server = new Server(userList);
+        this.managementLoginUi = new ManagementLoginUI(this.server, this);
     }
 
     /**
@@ -45,6 +56,11 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
         });
 
         buttonAddNewFare.setText("Add New Fare");
+        buttonAddNewFare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddNewFareActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,10 +86,14 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonAddMoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddMoneyActionPerformed
-        // TODO add your handling code here:
+    private void buttonAddNewFareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddNewFareActionPerformed
+        this.setVisible(false);
+        managementLoginUi.setVisible(true);
+    }//GEN-LAST:event_buttonAddNewFareActionPerformed
+    
+    private void buttonAddMoneyActionPerformed(java.awt.event.ActionEvent evt) {
         terminalUi.setVisible(true);
-    }//GEN-LAST:event_buttonAddMoneyActionPerformed
+    }
 
     /**
      * @param args the command line arguments
@@ -82,7 +102,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -104,6 +124,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new PublicTransportTicketing().setVisible(true);
             }

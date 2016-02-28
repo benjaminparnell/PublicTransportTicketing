@@ -30,10 +30,6 @@ public class Account {
         this.tokenList = new TokenList();
     }
     
-    void getAccount(int accountID){
-        //TODO: Figure out what this should return
-    }
-    
     float getCurrentBalance(){
         return Math.round(this.currentBalance * 100) /100;
     }

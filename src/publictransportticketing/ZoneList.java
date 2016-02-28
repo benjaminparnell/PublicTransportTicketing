@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package publictransportticketing;
 
 import java.util.Vector;
@@ -12,25 +7,50 @@ import java.util.Vector;
  * @author Swapnull
  */
 public class ZoneList{
-    Vector<Zone> zones;
+    public Vector<Zone> zones;
     
-    ZoneList(){
+    /**
+     * Creates a new instance of ZoneList.
+     */
+    public ZoneList(){
         this.zones = new Vector<Zone>();
     }
     
-    Zone findZone(String zoneID){
+    /**
+     * Attempts to find a Zone in zones that has the ID of zoneID.
+     * @param zoneID
+     * @return Zone
+     */
+    public Zone findZone(String zoneID){
         //get a zone based on the zone ID.
         Zone zone;
         for(int i = 0; i < this.zones.size(); i++){
             zone = this.zones.get(i);
-            if(zone.zoneName.equals(zoneID)){
+            if (zone.zoneName.equals(zoneID)){
                 return zone;
             }
         }
         return null;
     }
     
-    boolean checkIfExists(Zone zone){
+    /**
+     * Pass through to java.util.Vector. Returns true if the add succeeded.
+     * @param zone
+     * @return boolean 
+     */
+    public boolean addZone (Zone zone) {
+        return this.zones.add(zone);
+    }
+    
+    /**
+     * Pass through to java.util.Vector
+     * @return boolean 
+     */
+    public boolean isEmpty() {
+        return this.zones.isEmpty();
+    }
+    
+    public boolean checkIfExists(Zone zone){
         return zones.contains(zone);
     }
 }

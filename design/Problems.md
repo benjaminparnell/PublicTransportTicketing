@@ -11,6 +11,9 @@ building it.
     should have all of these things.
 - Account didn't have access to `TokenList`. Added it so we can validate a `Token`.
 - Server didn't have `AccountList`.
+- ManagementUI shouldn't really be in charge of login **and** other stuff. Added
+    ManagementLoginUI to get round this.
+- Fare and Journey essentially serve the exact same purpose here?
 
 ## Incorrect types
 

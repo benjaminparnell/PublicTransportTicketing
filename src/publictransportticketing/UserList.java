@@ -14,13 +14,17 @@ import java.util.Vector;
 public class UserList {
     //changed to extend vector instead of having Vector users;
     
-    Vector<User> users; 
+    public Vector<User> users; 
     
-    UserList(){
+    public UserList(Vector<User> users) {
+        this.users = users;
+    }
+    
+    public UserList(){
        this.users = new Vector<User>();
     }
     
-    User findUser(String userID){
+    public User findUser(String userID){
         User user;
         for(int i = 0; i < this.users.size(); i++){
             user = this.users.get(i);
@@ -31,7 +35,7 @@ public class UserList {
         return null; 
     }
     
-    Vector<User> findUserByName(String name){
+    public Vector<User> findUserByName(String name){
         User user;
         Vector<User> l_users = new Vector<User>();
         
@@ -45,9 +49,9 @@ public class UserList {
         return l_users;
     }
     
-    Vector<User> findUserByType(String type){
-        User user;
+    public Vector<User> findUserByType(String type){
         Vector<User> l_users = new Vector<User>();
+        User user;
         
         for(int i = 0; i < this.users.size(); i++){
             user = this.users.get(i);

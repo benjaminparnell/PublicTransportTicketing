@@ -13,14 +13,16 @@ public class User {
     String userID;
     String name;
     String userType; //not sure if this should be a type?
+    String password;
        
-    User(String userID, String name, String userType){
+    User(String userID, String name, String userType, String password){
         this.userID = userID;
         this.name = name;
         this.userType = userType;
+        this.password = password;
     }
     
-    void validateUser(String userID){
-        //TODO: Figure out what this should do && return
+    public Boolean validateLogin(String password){
+        return this.password.equals(password);
     }
 }
