@@ -10,15 +10,21 @@ package publictransportticketing;
  * @author Swapnull
  */
 public class MoneySlot {
-    void readInAmount(){
-        //TODO: Figure out what this should do and return
+    float amount;
+    
+    MoneySlot() {
+        amount = 0.0f;
     }
     
-    void checkAmount(){
-        //TODO: Figure out what this should do and return
+    void readInAmount(float inserted){
+        amount += inserted;
     }
     
-    void despenceChange(){
-        //TODO: Figure out what this should do and return
+    float checkAmount(){
+        return this.amount;
+    }
+    
+    float dispenseChange(){
+        return this.amount;
     }
 }
