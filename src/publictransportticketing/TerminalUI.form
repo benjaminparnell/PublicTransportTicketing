@@ -323,26 +323,31 @@
         <Component class="javax.swing.JButton" name="buttonTwoPounds">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xa3;2"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="buttonOnePounds">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xa3;1"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="buttonFiftyPence">
           <Properties>
             <Property name="text" type="java.lang.String" value="50p"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="buttonTwentyPence">
           <Properties>
             <Property name="text" type="java.lang.String" value="20p"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="buttonTenPence">
           <Properties>
             <Property name="text" type="java.lang.String" value="10p"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>

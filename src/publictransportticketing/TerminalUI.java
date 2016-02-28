@@ -183,14 +183,19 @@ public class TerminalUI extends javax.swing.JFrame {
         });
 
         buttonTwoPounds.setText("£2");
+        buttonTwoPounds.setEnabled(false);
 
         buttonOnePounds.setText("£1");
+        buttonOnePounds.setEnabled(false);
 
         buttonFiftyPence.setText("50p");
+        buttonFiftyPence.setEnabled(false);
 
         buttonTwentyPence.setText("20p");
+        buttonTwentyPence.setEnabled(false);
 
         buttonTenPence.setText("10p");
+        buttonTenPence.setEnabled(false);
 
         javax.swing.GroupLayout panelCoinsLayout = new javax.swing.GroupLayout(panelCoins);
         panelCoins.setLayout(panelCoinsLayout);
@@ -294,6 +299,7 @@ public class TerminalUI extends javax.swing.JFrame {
         
         buttonInsertCard.setEnabled(true);
         buttonRemoveCard.setEnabled(false);
+        toggleCoinButtons(false);
     }//GEN-LAST:event_buttonRemoveCardActionPerformed
 
     private void retrieveTokenDetails() {
@@ -309,6 +315,8 @@ public class TerminalUI extends javax.swing.JFrame {
             
             if (isTokenValid) {
                 cardLayout.show(panelTerminalScreen, panelUserDetailsScreen.getName());
+                
+                toggleCoinButtons(true);
             } else {
                 cardLayout.show(panelTerminalScreen, panelErrorScreen.getName());
             }
@@ -323,6 +331,16 @@ public class TerminalUI extends javax.swing.JFrame {
         account.accountName = "SAMPLE_ACCOUNT_NAME";
         
         return account;
+    }
+    
+    private void toggleCoinButtons(Boolean enabled) {
+        buttonFiftyPence.setEnabled(enabled);
+        buttonInsertCard.setEnabled(enabled);
+        buttonOnePounds.setEnabled(enabled);
+        buttonRemoveCard.setEnabled(enabled);
+        buttonTenPence.setEnabled(enabled);
+        buttonTwentyPence.setEnabled(enabled);
+        buttonTwoPounds.setEnabled(enabled);
     }
     /**
      * @param args the command line arguments
