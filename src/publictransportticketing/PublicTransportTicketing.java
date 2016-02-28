@@ -12,10 +12,8 @@ import java.util.Vector;
  * @author rowellheria
  */
 public class PublicTransportTicketing extends javax.swing.JFrame {
-
-    private TerminalUI terminalUi;
-
     private final ManagementLoginUI managementLoginUi;
+    private final TerminalUI terminalUi;
     private final Server server;
 
     /**
@@ -24,12 +22,12 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
     public PublicTransportTicketing() {
         initComponents();
         this.setLocationRelativeTo(null);
-        terminalUi = new TerminalUI();
         Vector<User> users = new Vector<User>();
         users.add(new User("bento", "Ben Parnell", "admin", "sea"));
         UserList userList = new UserList(users);
         this.server = new Server(userList);
         this.managementLoginUi = new ManagementLoginUI(this.server, this);
+        this.terminalUi = new TerminalUI(this.server, this);
     }
 
     /**
@@ -92,6 +90,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAddNewFareActionPerformed
     
     private void buttonAddMoneyActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setVisible(false);
         terminalUi.setVisible(true);
     }
 

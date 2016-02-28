@@ -20,31 +20,35 @@ import java.util.TimerTask;
 public class TerminalUI extends javax.swing.JFrame {
     
     private final CardLayout cardLayout;
+    private final MoneySlot moneySlot;
+    private final Server server;
+    private final PublicTransportTicketing mainUi;
+    
     private Token validToken;
     private Token invalidToken;
-    private Server server;
     private Account foundAccount;
-    private MoneySlot moneySlot;
     /**
      * Creates new form TerminalUI
      */
-    public TerminalUI() {
+    public TerminalUI(Server server, PublicTransportTicketing mainUi) {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        moneySlot = new MoneySlot();
+        this.moneySlot = new MoneySlot();
         
-        cardLayout = (CardLayout)panelTerminalScreen.getLayout();
+        this.cardLayout = (CardLayout)panelTerminalScreen.getLayout();
         Account userAccount = this.createNewAccount();
-        validToken = new Token(UniqueID.generate(), "CARD", userAccount.accountID);
-        validToken.isValid = true;
+        this.validToken = new Token(UniqueID.generate(), "CARD", userAccount.accountID);
+        this.validToken.isValid = true;
         
-        invalidToken = new Token(UniqueID.generate(), "CARD", userAccount.accountID);
+        this.invalidToken = new Token(UniqueID.generate(), "CARD", userAccount.accountID);
         
         userAccount.tokenList.addToken(validToken);
         
-        server = new Server();
-        server.allAccounts.addAccount(userAccount);
+        this.mainUi = mainUi;
+        this.server = server;
+        
+        this.server.allAccounts.addAccount(userAccount);
     }
 
     /**
@@ -654,7 +658,7 @@ public class TerminalUI extends javax.swing.JFrame {
     
     private Account createNewAccount() {
         Account account = new Account();
-        User user = new User(UniqueID.generate(), "Rowell", "Personal");
+        User user = new User(UniqueID.generate(), "Rowell", "Personal", "pass");
         
         account.accountID = UniqueID.generate();
         account.accountName = "SAMPLE_ACCOUNT_NAME";
@@ -725,13 +729,6 @@ public class TerminalUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TerminalUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TerminalUI().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
