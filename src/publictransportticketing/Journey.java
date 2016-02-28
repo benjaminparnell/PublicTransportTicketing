@@ -14,19 +14,19 @@ import org.joda.time.Duration;
  */
 public class Journey {
     String journeyID;
-    Location start; // should probably be of type Stop
-    Location destination; // should probably be of type Stop
+    Stop start;
+    Stop destination;
     DateTime startTime;
     DateTime endTime;
     Transport transport; //should probably be of type Transport
     
-    Journey (Location start, Location destination, Transport transport) {
+    Journey (Stop start, Stop destination, Transport transport) {
         this.start = start;
         this.destination = destination;
         this.transport = transport;
     }
     
-    Journey (Location start, Location destination, DateTime startTime, DateTime endTime, Transport transport) {
+    Journey (Stop start, Stop destination, DateTime startTime, DateTime endTime, Transport transport) {
         this.start = start;
         this.destination = destination;
         this.startTime = startTime;
@@ -45,7 +45,7 @@ public class Journey {
         return null;
     }
     
-    void updateJourneyDestination(Location destination){
+    void updateJourneyDestination(Stop destination){
         this.destination = destination;
     }
 }

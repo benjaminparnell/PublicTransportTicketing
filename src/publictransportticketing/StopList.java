@@ -19,7 +19,7 @@ public class StopList {
     }
     
     Stop findStop(String stopId){
-        Stop stop = null;
+        Stop stop;
         for(int i = 0; i < this.allStops.size(); i++){
             stop = this.allStops.get(i);
             if(stop.stopId.equalsIgnoreCase(stopId)){
@@ -30,7 +30,7 @@ public class StopList {
     }
     
     Vector<Stop> findStopByType(String type){
-        Stop stop = null;
+        Stop stop;
         Vector<Stop> stops = new Vector<Stop>();
         for(int i = 0; i < this.allStops.size(); i++){
             stop = this.allStops.get(i);

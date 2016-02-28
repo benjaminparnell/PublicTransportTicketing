@@ -5,32 +5,45 @@
  */
 package publictransportticketing;
 
-import java.util.Date;
 import java.util.Vector;
 
 /**
  *
  * @author Swapnull
  */
-public class BaseFareList extends Vector {
-    BaseFareList fareList;
+public class BaseFareList {
+    Vector<Fare> fareList;
     
-    Fare findFair(String fareName){
-        //TODO: Figure out what this should do and return
-        return new Fare();
+    BaseFareList(){
+        fareList = new Vector<Fare>();
     }
     
-    Fare findFair(Fare fare){
-        //TODO: Figure out what this should do and return
-        return new Fare();
+    Fare findFair(String fareID){
+        Fare fare;
+        for(int i = 0; i < this.fareList.size(); i++){
+            fare = this.fareList.get(i);
+            if(fare.fareID.equalsIgnoreCase(fareID)){
+                return fare;
+            }
+        }
+        return null; 
     }
     
-    Fare getValidFare(Journey journey){
-        //TODO: Figure out what this should do and return
-        return new Fare();
+    Vector<Fare> getValidFares(Journey journey){
+        Fare fare;
+        Vector<Fare> validFares = new Vector<Fare>();
+        
+        for(int i = 0; i < this.fareList.size(); i++){
+            fare = this.fareList.get(i);
+            if((fare.zones.findZone(journey.start.zone.zoneName) != null) && (fare.zones.findZone(journey.destination.zone.zoneName) != null)){
+                // Start zone and Destination Zone both exist in the fares zone range
+                validFares.add(fare);
+            }
+        }
+        return validFares;
     }
     
-    void addBaseFare(Transport transport, int numberOfStops, Date time, ZoneList zones, String tokenType){
-        //TODO: Figure out what this should do and return
+    void addBaseFare(String id, TransportList transport, ZoneList zones){
+        fareList.add(new Fare(id, transport, zones));
     }
 }
