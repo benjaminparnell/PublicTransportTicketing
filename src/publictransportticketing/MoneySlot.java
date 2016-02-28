@@ -24,7 +24,7 @@ public class MoneySlot {
         return this.amount;
     }
     
-    float dispenseChange(){
-        return this.amount;
+    void dispenseChange(){
+        this.amount = 0.0f;
     }
 }
