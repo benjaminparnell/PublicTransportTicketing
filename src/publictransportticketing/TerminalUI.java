@@ -6,6 +6,10 @@
 package publictransportticketing;
 
 import java.awt.CardLayout;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.util.Currency;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,12 +24,15 @@ public class TerminalUI extends javax.swing.JFrame {
     private Token invalidToken;
     private Server server;
     private Account foundAccount;
+    private MoneySlot moneySlot;
     /**
      * Creates new form TerminalUI
      */
     public TerminalUI() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        moneySlot = new MoneySlot();
         
         cardLayout = (CardLayout)panelTerminalScreen.getLayout();
         Account userAccount = this.createNewAccount();
@@ -340,18 +347,43 @@ public class TerminalUI extends javax.swing.JFrame {
 
         buttonTwoPounds.setText("£2");
         buttonTwoPounds.setEnabled(false);
+        buttonTwoPounds.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTwoPoundsActionPerformed(evt);
+            }
+        });
 
         buttonOnePounds.setText("£1");
         buttonOnePounds.setEnabled(false);
+        buttonOnePounds.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonOnePoundsActionPerformed(evt);
+            }
+        });
 
         buttonFiftyPence.setText("50p");
         buttonFiftyPence.setEnabled(false);
+        buttonFiftyPence.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonFiftyPenceActionPerformed(evt);
+            }
+        });
 
         buttonTwentyPence.setText("20p");
         buttonTwentyPence.setEnabled(false);
+        buttonTwentyPence.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTwentyPenceActionPerformed(evt);
+            }
+        });
 
         buttonTenPence.setText("10p");
         buttonTenPence.setEnabled(false);
+        buttonTenPence.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTenPenceActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelCoinsLayout = new javax.swing.GroupLayout(panelCoins);
         panelCoins.setLayout(panelCoinsLayout);
@@ -474,7 +506,29 @@ public class TerminalUI extends javax.swing.JFrame {
     private void buttonCancelUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelUpdateActionPerformed
         showOptions(foundAccount.profileName);
         toggleCoinButtons(false);
+        textFieldUpdateBalance.setText("0.00");
+        moneySlot.dispenseChange();
     }//GEN-LAST:event_buttonCancelUpdateActionPerformed
+
+    private void buttonTwoPoundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTwoPoundsActionPerformed
+        coinInserted(2.00f);
+    }//GEN-LAST:event_buttonTwoPoundsActionPerformed
+
+    private void buttonOnePoundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOnePoundsActionPerformed
+        coinInserted(1.00f);
+    }//GEN-LAST:event_buttonOnePoundsActionPerformed
+
+    private void buttonFiftyPenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFiftyPenceActionPerformed
+        coinInserted(0.50f);
+    }//GEN-LAST:event_buttonFiftyPenceActionPerformed
+
+    private void buttonTwentyPenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTwentyPenceActionPerformed
+        coinInserted(0.20f);
+    }//GEN-LAST:event_buttonTwentyPenceActionPerformed
+
+    private void buttonTenPenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTenPenceActionPerformed
+        coinInserted(0.10f);
+    }//GEN-LAST:event_buttonTenPenceActionPerformed
 
     private void retrieveTokenDetails() {
         Token tokenToUse = checkBoxInvalidToken.isSelected() 
@@ -528,6 +582,18 @@ public class TerminalUI extends javax.swing.JFrame {
         buttonInsertCard.setEnabled(true);
         buttonRemoveCard.setEnabled(false);
         toggleCoinButtons(false);
+    }
+    
+    private void coinInserted(float value) {
+        moneySlot.readInAmount(value);
+        
+        float amount = moneySlot.checkAmount();
+        
+        DecimalFormat df = new DecimalFormat("0.00");
+        df.setRoundingMode(RoundingMode.CEILING);
+        df.setCurrency(Currency.getInstance(Locale.UK));
+        
+        textFieldUpdateBalance.setText(df.format(amount));
     }
     
     /**
