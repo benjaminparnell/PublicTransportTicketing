@@ -25,7 +25,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
         users.add(new User("bento", "Ben Parnell", "admin", "sea"));
         UserList userList = new UserList(users);
         this.server = new Server(userList);
-        this.managementLoginUi = new ManagementLoginUI(this.server);
+        this.managementLoginUi = new ManagementLoginUI(this.server, this);
     }
 
     /**

@@ -7,14 +7,17 @@ package publictransportticketing;
 public class ManagementLoginUI extends javax.swing.JFrame {
 
     private final Server server;
+    private final PublicTransportTicketing mainUi;
 
     /**
      * Creates new form ManagementUI
      * @param server
+     * @param mainUi
      */
-    public ManagementLoginUI(Server server) {
+    public ManagementLoginUI(Server server, PublicTransportTicketing mainUi) {
         initComponents();
         this.server = server;
+        this.mainUi = mainUi;
     }
 
     /**
@@ -30,6 +33,7 @@ public class ManagementLoginUI extends javax.swing.JFrame {
         passwordInput = new javax.swing.JTextField();
         loginButton = new javax.swing.JButton();
         loginError = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,18 +74,30 @@ public class ManagementLoginUI extends javax.swing.JFrame {
             }
         });
 
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(loginError)
-                    .addComponent(loginButton)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(userIdInput, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(loginError)
+                            .addComponent(loginButton)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(userIdInput, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backButton)))
                 .addContainerGap(213, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -95,7 +111,9 @@ public class ManagementLoginUI extends javax.swing.JFrame {
                 .addComponent(loginButton)
                 .addGap(18, 18, 18)
                 .addComponent(loginError)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(backButton)
+                .addContainerGap())
         );
 
         pack();
@@ -117,7 +135,7 @@ public class ManagementLoginUI extends javax.swing.JFrame {
         }
         
         this.setVisible(false);
-        new ManagementUI(this.server).setVisible(true);
+        new ManagementUI(this.server, this).setVisible(true);
     }//GEN-LAST:event_loginButtonActionPerformed
 
     void displayErrorMessage(String err) {
@@ -164,6 +182,11 @@ public class ManagementLoginUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_passwordInputFocusLost
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        this.setVisible(false);
+        this.mainUi.setVisible(true);
+    }//GEN-LAST:event_backButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -194,6 +217,7 @@ public class ManagementLoginUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel loginError;
     private javax.swing.JTextField passwordInput;

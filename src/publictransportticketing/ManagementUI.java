@@ -13,12 +13,13 @@ public class ManagementUI extends javax.swing.JFrame {
 
     private final Server server;
     private final Vector<JCheckBox> zoneCheckBoxes;
+    private final ManagementLoginUI loginUi;
     
     /**
      * Creates new form ManagementUI
      * @param server
      */
-    public ManagementUI(Server server) {
+    public ManagementUI(Server server, ManagementLoginUI loginUi) {
         initComponents();
         this.server = server;
         this.setupUi();
@@ -29,7 +30,7 @@ public class ManagementUI extends javax.swing.JFrame {
         this.zoneCheckBoxes.add(this.zoneFourCheckbox);
         this.zoneCheckBoxes.add(this.ZoneFiveCheckbox);
         this.zoneCheckBoxes.add(this.zoneSixCheckbox);
-        
+        this.loginUi = loginUi;
     }
     
     private void setupUi() {
@@ -73,6 +74,7 @@ public class ManagementUI extends javax.swing.JFrame {
         zoneSixCheckbox = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         saveButton = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
 
         jCheckBox2.setText("jCheckBox1");
 
@@ -129,6 +131,13 @@ public class ManagementUI extends javax.swing.JFrame {
             }
         });
 
+        logoutButton.setText("Logout");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,7 +145,10 @@ public class ManagementUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(saveButton)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(saveButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 389, Short.MAX_VALUE)
+                        .addComponent(logoutButton))
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(zoneThreeCheckbox)
@@ -185,7 +197,7 @@ public class ManagementUI extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(endSecondsLabel)))))
-                .addContainerGap(376, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,7 +249,9 @@ public class ManagementUI extends javax.swing.JFrame {
                     .addComponent(zoneSixCheckbox)
                     .addComponent(zoneThreeCheckbox))
                 .addGap(18, 18, 18)
-                .addComponent(saveButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveButton)
+                    .addComponent(logoutButton))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -275,6 +289,11 @@ public class ManagementUI extends javax.swing.JFrame {
        
        this.server.ListOfFares.addBaseFare(fare);
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        this.setVisible(false);
+        this.loginUi.setVisible(true);
+    }//GEN-LAST:event_logoutButtonActionPerformed
     
     
     /**
@@ -339,6 +358,7 @@ public class ManagementUI extends javax.swing.JFrame {
     private javax.swing.JLabel endTimeLabel;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton logoutButton;
     private javax.swing.JButton saveButton;
     private com.toedter.calendar.JDateChooser startDatePicker;
     private javax.swing.JSpinner startHourSpinner;
