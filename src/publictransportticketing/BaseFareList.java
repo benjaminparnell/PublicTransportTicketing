@@ -18,6 +18,11 @@ public class BaseFareList {
         fareList = new Vector<Fare>();
     }
     
+   /**
+    * Trys to find a Fare in fareList that has the fareID of fareID.
+    * @param fareID
+    * @return Fare
+    */
     public Fare findFair(String fareID){
         Fare fare;
         for(int i = 0; i < this.fareList.size(); i++){
@@ -43,6 +48,12 @@ public class BaseFareList {
         return validFares;
     }
     
+    /**
+     * Turns the params into a Fare object and adds them to the internal fareList.
+     * @param id
+     * @param transport
+     * @param zones 
+     */
     void addBaseFare(String id, TransportList transport, ZoneList zones){
         fareList.add(new Fare(id, transport, zones));
     }

@@ -6,7 +6,7 @@ package publictransportticketing;
  */
 public class ManagementLoginUI extends javax.swing.JFrame {
 
-    private Server server;
+    private final Server server;
 
     /**
      * Creates new form ManagementUI

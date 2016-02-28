@@ -274,6 +274,11 @@ public class ManagementUI extends javax.swing.JFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
     
     
+    /**
+     * Populates a ZoneList with Zones according to the JCheckBox's that have been checked on 
+     * the UI
+     * @return ZoneList
+     */
     private ZoneList getSelectedZones() {
         ZoneList zones = new ZoneList();
         
