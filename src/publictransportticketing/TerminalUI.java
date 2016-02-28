@@ -28,10 +28,10 @@ public class TerminalUI extends javax.swing.JFrame {
         
         cardLayout = (CardLayout)panelTerminalScreen.getLayout();
         Account userAccount = this.createNewAccount();
-        validToken = new Token("TOKEN_ID_1", "CARD", userAccount.accountID);
+        validToken = new Token(UniqueID.generate(), "CARD", userAccount.accountID);
         validToken.isValid = true;
         
-        invalidToken = new Token("TOKEN_ID_2", "CARD", userAccount.accountID);
+        invalidToken = new Token(UniqueID.generate(), "CARD", userAccount.accountID);
         
         userAccount.tokenList.addToken(validToken);
         
@@ -327,7 +327,7 @@ public class TerminalUI extends javax.swing.JFrame {
     
     private Account createNewAccount() {
         Account account = new Account();
-        account.accountID = "SAMPLE_ID";
+        account.accountID = UniqueID.generate();
         account.accountName = "SAMPLE_ACCOUNT_NAME";
         
         return account;
