@@ -13,7 +13,7 @@ import java.awt.CardLayout;
  */
 public class TerminalUI extends javax.swing.JFrame {
     
-    private CardLayout cardLayout;
+    private final CardLayout cardLayout;
     /**
      * Creates new form TerminalUI
      */
@@ -44,6 +44,9 @@ public class TerminalUI extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         buttonInsertCard = new javax.swing.JButton();
         buttonRemoveCard = new javax.swing.JButton();
+        panelCoins = new javax.swing.JPanel();
+        buttonTwoPounds = new javax.swing.JButton();
+        buttonOnePounds = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Terminal");
@@ -160,6 +163,31 @@ public class TerminalUI extends javax.swing.JFrame {
             }
         });
 
+        buttonTwoPounds.setText("£2");
+
+        buttonOnePounds.setText("£1");
+
+        javax.swing.GroupLayout panelCoinsLayout = new javax.swing.GroupLayout(panelCoins);
+        panelCoins.setLayout(panelCoinsLayout);
+        panelCoinsLayout.setHorizontalGroup(
+            panelCoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCoinsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(buttonTwoPounds, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonOnePounds, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelCoinsLayout.setVerticalGroup(
+            panelCoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCoinsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonTwoPounds)
+                    .addComponent(buttonOnePounds))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -168,8 +196,9 @@ public class TerminalUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(483, 483, 483)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelCoins, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(buttonRemoveCard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(buttonInsertCard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -186,11 +215,17 @@ public class TerminalUI extends javax.swing.JFrame {
                 .addComponent(panelTerminalScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(buttonInsertCard)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonRemoveCard)
-                .addGap(24, 24, 24))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(buttonInsertCard)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonRemoveCard)
+                        .addGap(24, 24, 24))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelCoins, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         pack();
@@ -247,11 +282,14 @@ public class TerminalUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonInsertCard;
+    private javax.swing.JButton buttonOnePounds;
     private javax.swing.JButton buttonRemoveCard;
+    private javax.swing.JButton buttonTwoPounds;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelDefaultScreen;
     private javax.swing.JLabel labelErrorScreen;
     private javax.swing.JLabel labelRetrieveDetailsScreen;
+    private javax.swing.JPanel panelCoins;
     private javax.swing.JPanel panelDefaultScreen;
     private javax.swing.JPanel panelErrorScreen;
     private javax.swing.JPanel panelRetrieveDetailsScreen;
