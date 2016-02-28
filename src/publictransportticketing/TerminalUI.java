@@ -62,6 +62,13 @@ public class TerminalUI extends javax.swing.JFrame {
         buttonShowBalance = new javax.swing.JButton();
         buttonUpdateBalance = new javax.swing.JButton();
         buttonReturnCard = new javax.swing.JButton();
+        panelShowBalance = new javax.swing.JPanel();
+        panelUpdateBalance = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        textFieldUpdateBalance = new javax.swing.JTextField();
+        buttonConfirmUpdate = new javax.swing.JButton();
+        buttonCancelUpdate = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         buttonInsertCard = new javax.swing.JButton();
         buttonRemoveCard = new javax.swing.JButton();
@@ -229,6 +236,93 @@ public class TerminalUI extends javax.swing.JFrame {
 
         panelTerminalScreen.add(panelUserDetailsScreen, "panelUserDetailsScreen");
 
+        panelShowBalance.setBackground(new java.awt.Color(204, 204, 204));
+        panelShowBalance.setName("panelShowBalance"); // NOI18N
+
+        javax.swing.GroupLayout panelShowBalanceLayout = new javax.swing.GroupLayout(panelShowBalance);
+        panelShowBalance.setLayout(panelShowBalanceLayout);
+        panelShowBalanceLayout.setHorizontalGroup(
+            panelShowBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 535, Short.MAX_VALUE)
+        );
+        panelShowBalanceLayout.setVerticalGroup(
+            panelShowBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 316, Short.MAX_VALUE)
+        );
+
+        panelTerminalScreen.add(panelShowBalance, "panelShowBalance");
+
+        panelUpdateBalance.setBackground(new java.awt.Color(204, 204, 204));
+        panelUpdateBalance.setName("panelUpdateBalance"); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel3.setText("Update Balance");
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel2.setText("Inserted");
+
+        textFieldUpdateBalance.setEditable(false);
+        textFieldUpdateBalance.setText("0.00");
+
+        buttonConfirmUpdate.setBackground(new java.awt.Color(0, 204, 0));
+        buttonConfirmUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        buttonConfirmUpdate.setText("Confirm");
+        buttonConfirmUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonConfirmUpdateActionPerformed(evt);
+            }
+        });
+
+        buttonCancelUpdate.setBackground(new java.awt.Color(255, 51, 0));
+        buttonCancelUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        buttonCancelUpdate.setText("Cancel");
+        buttonCancelUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelUpdateActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelUpdateBalanceLayout = new javax.swing.GroupLayout(panelUpdateBalance);
+        panelUpdateBalance.setLayout(panelUpdateBalanceLayout);
+        panelUpdateBalanceLayout.setHorizontalGroup(
+            panelUpdateBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUpdateBalanceLayout.createSequentialGroup()
+                .addGroup(panelUpdateBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelUpdateBalanceLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE))
+                    .addGroup(panelUpdateBalanceLayout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textFieldUpdateBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(panelUpdateBalanceLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(buttonCancelUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonConfirmUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
+        );
+        panelUpdateBalanceLayout.setVerticalGroup(
+            panelUpdateBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUpdateBalanceLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
+                .addGroup(panelUpdateBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldUpdateBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(81, 81, 81)
+                .addGroup(panelUpdateBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonCancelUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonConfirmUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
+        panelTerminalScreen.add(panelUpdateBalance, "panelUpdateBalance");
+
         buttonInsertCard.setText("Insert Card");
         buttonInsertCard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -365,12 +459,22 @@ public class TerminalUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonShowBalanceActionPerformed
 
     private void buttonUpdateBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateBalanceActionPerformed
-        // TODO add your handling code here:
+        cardLayout.show(panelTerminalScreen, panelUpdateBalance.getName());
+        toggleCoinButtons(true);
     }//GEN-LAST:event_buttonUpdateBalanceActionPerformed
 
     private void buttonReturnCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReturnCardActionPerformed
         returnCard();
     }//GEN-LAST:event_buttonReturnCardActionPerformed
+
+    private void buttonConfirmUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConfirmUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonConfirmUpdateActionPerformed
+
+    private void buttonCancelUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelUpdateActionPerformed
+        showOptions(foundAccount.profileName);
+        toggleCoinButtons(false);
+    }//GEN-LAST:event_buttonCancelUpdateActionPerformed
 
     private void retrieveTokenDetails() {
         Token tokenToUse = checkBoxInvalidToken.isSelected() 
@@ -385,8 +489,6 @@ public class TerminalUI extends javax.swing.JFrame {
             
             if (isTokenValid) {
                 showOptions(foundAccount.profileName);
-                toggleCoinButtons(true);
-                buttonInsertCard.setEnabled(false);
             } else {
                 cardLayout.show(panelTerminalScreen, panelErrorScreen.getName());
             }
@@ -409,9 +511,7 @@ public class TerminalUI extends javax.swing.JFrame {
     
     private void toggleCoinButtons(Boolean enabled) {
         buttonFiftyPence.setEnabled(enabled);
-        buttonInsertCard.setEnabled(enabled);
         buttonOnePounds.setEnabled(enabled);
-        buttonRemoveCard.setEnabled(enabled);
         buttonTenPence.setEnabled(enabled);
         buttonTwentyPence.setEnabled(enabled);
         buttonTwoPounds.setEnabled(enabled);
@@ -466,6 +566,8 @@ public class TerminalUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonCancelUpdate;
+    private javax.swing.JButton buttonConfirmUpdate;
     private javax.swing.JButton buttonFiftyPence;
     private javax.swing.JButton buttonInsertCard;
     private javax.swing.JButton buttonOnePounds;
@@ -478,6 +580,8 @@ public class TerminalUI extends javax.swing.JFrame {
     private javax.swing.JButton buttonUpdateBalance;
     private javax.swing.JCheckBox checkBoxInvalidToken;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelDefaultScreen;
     private javax.swing.JLabel labelErrorScreen;
@@ -487,7 +591,10 @@ public class TerminalUI extends javax.swing.JFrame {
     private javax.swing.JPanel panelDefaultScreen;
     private javax.swing.JPanel panelErrorScreen;
     private javax.swing.JPanel panelRetrieveDetailsScreen;
+    private javax.swing.JPanel panelShowBalance;
     private javax.swing.JPanel panelTerminalScreen;
+    private javax.swing.JPanel panelUpdateBalance;
     private javax.swing.JPanel panelUserDetailsScreen;
+    private javax.swing.JTextField textFieldUpdateBalance;
     // End of variables declaration//GEN-END:variables
 }
