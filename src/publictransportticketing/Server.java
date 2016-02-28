@@ -37,8 +37,8 @@ public class Server {
         //TODO: Figure out what this should do and return
     }
     
-    void validateToken(Account account, Token token){
-        //TODO: Figure out what this should do and return
+    Boolean validateToken(Account account, Token token){
+        return account.validateToken(token);
     }
     
     Account findAccount(String accountId) {

@@ -16,6 +16,9 @@ import java.util.TimerTask;
 public class TerminalUI extends javax.swing.JFrame {
     
     private final CardLayout cardLayout;
+    private Token validToken;
+    private Token invalidToken;
+    private Server server;
     /**
      * Creates new form TerminalUI
      */
@@ -24,6 +27,13 @@ public class TerminalUI extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         cardLayout = (CardLayout)panelTerminalScreen.getLayout();
+        Account userAccount = this.createNewAccount();
+        validToken = new Token("TOKEN_ID_1", "CARD", userAccount.accountID);
+        validToken.isValid = true;
+        
+        invalidToken = new Token("TOKEN_ID_2", "CARD", userAccount.accountID);
+        
+        server = new Server();
     }
 
     /**
@@ -258,9 +268,14 @@ public class TerminalUI extends javax.swing.JFrame {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             public void run() {
-                showNewPanel();
+                retrieveTokenDetails();
             }
-        }, 1000);
+        }, 2000);
+        
+        cardLayout.show(panelTerminalScreen, panelRetrieveDetailsScreen.getName());
+        
+        buttonInsertCard.setEnabled(false);
+        buttonRemoveCard.setEnabled(true);
     }//GEN-LAST:event_buttonInsertCardActionPerformed
 
     private void buttonRemoveCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveCardActionPerformed
@@ -270,11 +285,30 @@ public class TerminalUI extends javax.swing.JFrame {
         buttonRemoveCard.setEnabled(false);
     }//GEN-LAST:event_buttonRemoveCardActionPerformed
 
-    private void showNewPanel() {
-        cardLayout.show(panelTerminalScreen, panelRetrieveDetailsScreen.getName());
+    private void retrieveTokenDetails() {
+        String accountId = invalidToken.getAccountID();
         
-        buttonInsertCard.setEnabled(false);
-        buttonRemoveCard.setEnabled(true);
+        Account account = server.findAccount(accountId);
+        
+        if (account != null) {
+            Boolean validToken = server.validateToken(account, invalidToken);
+            
+            if (validToken) {
+                cardLayout.show(panelTerminalScreen, panelUserDetailsScreen.getName());
+            } else {
+                cardLayout.show(panelTerminalScreen, panelErrorScreen.getName());
+            }
+        } else {
+            cardLayout.show(panelTerminalScreen, panelErrorScreen.getName());
+        }
+    }
+    
+    private Account createNewAccount() {
+        Account account = new Account();
+        account.accountID = "SAMPLE_ID";
+        account.accountName = "SAMPLE_ACCOUNT_NAME";
+        
+        return account;
     }
     /**
      * @param args the command line arguments
