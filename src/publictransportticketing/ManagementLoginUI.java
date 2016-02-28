@@ -10,7 +10,7 @@ public class ManagementLoginUI extends javax.swing.JFrame {
     private final PublicTransportTicketing mainUi;
 
     /**
-     * Creates new form ManagementUI
+     * Creates new form FareFormUI
      * @param server
      * @param mainUi
      */

@@ -5,6 +5,8 @@
  */
 package publictransportticketing;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Vector;
 
 /**
@@ -55,7 +57,25 @@ public class BaseFareList {
      * @param zones 
      * @return boolean
      */
-    boolean addBaseFare(Fare fare){
+    public boolean addBaseFare(Fare fare){
         return fareList.add(fare);
+    }
+    
+    public Vector<Vector<Object>> getTableRows() {
+        Vector<Vector<Object>> rows = new Vector<Vector<Object>>();
+        
+        for (Fare fare : this.fareList) {
+            Vector<Object> row = new Vector<Object>();
+            row.add(fare.fareID);
+            row.add(fare.zones.zones.size());
+            row.add(Integer.toString(fare.stopCount));
+            row.add(Float.toString(fare.price));
+            row.add(fare.startTime);
+            row.add(fare.endTime);
+            row.add(fare.tokenType);
+            rows.add(row);
+        }
+        
+        return rows;
     }
 }

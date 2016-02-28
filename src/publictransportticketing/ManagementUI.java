@@ -1,9 +1,9 @@
 package publictransportticketing;
 
-import java.util.Date;
 import java.util.Vector;
-import javax.swing.JCheckBox;
-import org.joda.time.DateTime;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -11,31 +11,35 @@ import org.joda.time.DateTime;
  */
 public class ManagementUI extends javax.swing.JFrame {
 
-    private final Server server;
-    private final Vector<JCheckBox> zoneCheckBoxes;
     private final ManagementLoginUI loginUi;
+    private final Server server;
     
     /**
      * Creates new form ManagementUI
-     * @param server
      */
     public ManagementUI(Server server, ManagementLoginUI loginUi) {
         initComponents();
         this.server = server;
         this.setupUi();
-        this.zoneCheckBoxes = new Vector<JCheckBox>();
-        this.zoneCheckBoxes.add(this.zoneOneCheckbox);
-        this.zoneCheckBoxes.add(this.zoneTwoCheckbox);
-        this.zoneCheckBoxes.add(this.zoneThreeCheckbox);
-        this.zoneCheckBoxes.add(this.zoneFourCheckbox);
-        this.zoneCheckBoxes.add(this.ZoneFiveCheckbox);
-        this.zoneCheckBoxes.add(this.zoneSixCheckbox);
         this.loginUi = loginUi;
     }
     
     private void setupUi() {
-        this.transportChoice.addItem("Train");
-        this.transportChoice.addItem("Bus");
+       this.initTable();
+    }
+    
+    public void initTable() {
+       DefaultTableModel model = (DefaultTableModel) this.jTable1.getModel();
+       
+       if (model.getRowCount() > 0) {
+           for (int rowIndex = model.getRowCount() - 1; rowIndex > -1; rowIndex--) {
+               model.removeRow(rowIndex);
+           }
+       }
+        
+       for (Vector<Object> row : this.server.ListOfFares.getTableRows()) {
+           model.addRow(row);
+       }
     }
 
     /**
@@ -47,94 +51,41 @@ public class ManagementUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBox2 = new javax.swing.JCheckBox();
-        transportChoice = new java.awt.Choice();
-        transportLabel = new java.awt.Label();
-        startDatePicker = new com.toedter.calendar.JDateChooser();
-        endDatePicker = new com.toedter.calendar.JDateChooser();
-        startHourSpinner = new javax.swing.JSpinner();
-        startMinuteSpinner = new javax.swing.JSpinner();
-        startSecondSpinner = new javax.swing.JSpinner();
-        endHourSpinner = new javax.swing.JSpinner();
-        endMinuteSpinner = new javax.swing.JSpinner();
-        endSecondSpinner = new javax.swing.JSpinner();
-        startTimeLabel = new javax.swing.JLabel();
-        endTimeLabel = new javax.swing.JLabel();
-        endHoursLabel = new javax.swing.JLabel();
-        endMinutesLabel = new javax.swing.JLabel();
-        endSecondsLabel = new javax.swing.JLabel();
-        endHoursLabel1 = new javax.swing.JLabel();
-        endMinutesLabel1 = new javax.swing.JLabel();
-        endSecondsLabel1 = new javax.swing.JLabel();
-        zoneOneCheckbox = new javax.swing.JCheckBox();
-        zoneFourCheckbox = new javax.swing.JCheckBox();
-        zoneTwoCheckbox = new javax.swing.JCheckBox();
-        ZoneFiveCheckbox = new javax.swing.JCheckBox();
-        zoneThreeCheckbox = new javax.swing.JCheckBox();
-        zoneSixCheckbox = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
-        saveButton = new javax.swing.JButton();
-        logoutButton = new javax.swing.JButton();
-
-        jCheckBox2.setText("jCheckBox1");
+        fareTable = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        newFareButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        transportLabel.setText("Transport");
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        startHourSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
+            },
+            new String [] {
+                "ID", "Zones", "Stops", "Price", "Start", "End", "Token Type"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
 
-        startMinuteSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
-        startSecondSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
-
-        endHourSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 23, 1));
-
-        endMinuteSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
-
-        endSecondSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
-
-        startTimeLabel.setText("Start Time");
-
-        endTimeLabel.setText("End Time");
-
-        endHoursLabel.setText("Hours");
-
-        endMinutesLabel.setText("Minutes");
-
-        endSecondsLabel.setText("Seconds");
-
-        endHoursLabel1.setText("Hours");
-
-        endMinutesLabel1.setText("Minutes");
-
-        endSecondsLabel1.setText("Seconds");
-
-        zoneOneCheckbox.setText("Zone 1");
-
-        zoneFourCheckbox.setText("Zone 4");
-
-        zoneTwoCheckbox.setText("Zone 2");
-
-        ZoneFiveCheckbox.setText("Zone 5");
-
-        zoneThreeCheckbox.setText("Zone 3");
-
-        zoneSixCheckbox.setText("Zone 6");
-
-        jLabel1.setText("Zones");
-
-        saveButton.setText("Save");
-        saveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButtonActionPerformed(evt);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
+        fareTable.setViewportView(jTable1);
 
-        logoutButton.setText("Logout");
-        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+        newFareButton.setText("New Fare");
+        newFareButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButtonActionPerformed(evt);
+                newFareButtonActionPerformed(evt);
             }
         });
 
@@ -143,178 +94,31 @@ public class ManagementUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(saveButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 389, Short.MAX_VALUE)
-                        .addComponent(logoutButton))
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(zoneThreeCheckbox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(zoneSixCheckbox))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(zoneTwoCheckbox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ZoneFiveCheckbox))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(zoneOneCheckbox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(zoneFourCheckbox))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(endHoursLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(endMinutesLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(endSecondsLabel1))
-                    .addComponent(endDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(endTimeLabel)
-                    .addComponent(startTimeLabel)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(startHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(startMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(startSecondSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(startDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(transportLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(transportChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(endHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(endMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(endHoursLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(endMinutesLabel)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(endSecondSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(endSecondsLabel)))))
+                    .addComponent(fareTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(newFareButton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(transportLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(transportChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fareTable, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(startTimeLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(startDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(endHoursLabel1)
-                    .addComponent(endMinutesLabel1)
-                    .addComponent(endSecondsLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(startHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(startMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(startSecondSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addComponent(endTimeLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(endDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(endHoursLabel)
-                    .addComponent(endMinutesLabel)
-                    .addComponent(endSecondsLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(endHourSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(endMinuteSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(endSecondSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(zoneOneCheckbox)
-                    .addComponent(zoneFourCheckbox))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(zoneTwoCheckbox)
-                    .addComponent(ZoneFiveCheckbox))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(zoneSixCheckbox)
-                    .addComponent(zoneThreeCheckbox))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(saveButton)
-                    .addComponent(logoutButton))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(newFareButton)
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        String transport = this.transportChoice.getSelectedItem();
-        
-        Date baseStartDate = this.startDatePicker.getDate();
-        Integer startTimeHour = (Integer) this.startHourSpinner.getValue();
-        Integer startTimeMinute = (Integer) this.startMinuteSpinner.getValue();
-        Integer startTimeSecond = (Integer) this.startSecondSpinner.getValue();
-        
-        Date baseEndDate = this.endDatePicker.getDate();
-        Integer endTimeHour = (Integer) this.endHourSpinner.getValue();
-        Integer endTimeMinute = (Integer) this.endMinuteSpinner.getValue();
-        Integer endTimeSecond = (Integer) this.endSecondSpinner.getValue();
-        
-       DateTime start = new DateTime(baseStartDate).withTime(startTimeHour, startTimeMinute, startTimeSecond, 0);
-       
-       DateTime end = new DateTime(baseEndDate).withTime(endTimeHour, endTimeMinute, endTimeSecond, 0);
-       
-       // TODO: No error handling here to see if start > end or end < start
-       
-       ZoneList zones = this.getSelectedZones();
-       
-       // TODO: check to see if zones is empty
-       
-       TransportList transports = new TransportList();
-       transports.addTransport(new Transport(UniqueID.generate(), new TransportType(transport)));
-       Fare fare = new Fare(UniqueID.generate(), transports, zones);
-       fare.startTime = start;
-       fare.endTime = end;
-       
-       this.server.ListOfFares.addBaseFare(fare);
-    }//GEN-LAST:event_saveButtonActionPerformed
+    private void newFareButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newFareButtonActionPerformed
+        new FareFormUI(this.server, this).setVisible(true);
+    }//GEN-LAST:event_newFareButtonActionPerformed
 
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        this.setVisible(false);
-        this.loginUi.setVisible(true);
-    }//GEN-LAST:event_logoutButtonActionPerformed
-    
-    
-    /**
-     * Populates a ZoneList with Zones according to the JCheckBox's that have been checked on 
-     * the UI
-     * @return ZoneList
-     */
-    private ZoneList getSelectedZones() {
-        ZoneList zones = new ZoneList();
-        
-        for (JCheckBox checkbox : this.zoneCheckBoxes) {
-            if (checkbox.isSelected()) {
-                int index = this.zoneCheckBoxes.indexOf(checkbox);
-                Zone zone = new Zone("Zone " + index);
-                zones.addZone(zone);
-            }
-        }
-        
-        return zones;
-    }
-    
     /**
      * @param args the command line arguments
      */
@@ -344,33 +148,8 @@ public class ManagementUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox ZoneFiveCheckbox;
-    private com.toedter.calendar.JDateChooser endDatePicker;
-    private javax.swing.JSpinner endHourSpinner;
-    private javax.swing.JLabel endHoursLabel;
-    private javax.swing.JLabel endHoursLabel1;
-    private javax.swing.JSpinner endMinuteSpinner;
-    private javax.swing.JLabel endMinutesLabel;
-    private javax.swing.JLabel endMinutesLabel1;
-    private javax.swing.JSpinner endSecondSpinner;
-    private javax.swing.JLabel endSecondsLabel;
-    private javax.swing.JLabel endSecondsLabel1;
-    private javax.swing.JLabel endTimeLabel;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton logoutButton;
-    private javax.swing.JButton saveButton;
-    private com.toedter.calendar.JDateChooser startDatePicker;
-    private javax.swing.JSpinner startHourSpinner;
-    private javax.swing.JSpinner startMinuteSpinner;
-    private javax.swing.JSpinner startSecondSpinner;
-    private javax.swing.JLabel startTimeLabel;
-    private java.awt.Choice transportChoice;
-    private java.awt.Label transportLabel;
-    private javax.swing.JCheckBox zoneFourCheckbox;
-    private javax.swing.JCheckBox zoneOneCheckbox;
-    private javax.swing.JCheckBox zoneSixCheckbox;
-    private javax.swing.JCheckBox zoneThreeCheckbox;
-    private javax.swing.JCheckBox zoneTwoCheckbox;
+    private javax.swing.JScrollPane fareTable;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton newFareButton;
     // End of variables declaration//GEN-END:variables
 }
