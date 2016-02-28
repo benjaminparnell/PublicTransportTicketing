@@ -62,12 +62,10 @@ public class AccountTest {
     public void testValidateToken() {
         System.out.println("validateToken");
         
-        Token token = new Token();
-        token.tokenID = "token_id_test";
+        Token token = new Token("token_id_test", "bus", "abcd123");
         token.isValid = true;
         
-        Token tokenInValid = new Token();
-        tokenInValid.tokenID = "token_id_test_inv";
+        Token tokenInValid = new Token("token_id_test_inv", "bus", "abcd123");
         tokenInValid.isValid = false;
         
         TokenList tokenList = new TokenList();

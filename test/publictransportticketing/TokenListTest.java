@@ -36,8 +36,7 @@ public class TokenListTest {
         String tokenID = "sample_id";
         TokenList instance = new TokenList();
         
-        Token expResult = new Token();
-        expResult.tokenID = tokenID;
+        Token expResult = new Token(tokenID, "train", "abcde124");
         
         instance.addToken(expResult);
         
@@ -54,8 +53,7 @@ public class TokenListTest {
         String tokenID = "sample_id";
         TokenList instance = new TokenList();
         
-        Token token = new Token();
-        token.tokenID = tokenID;
+        Token token = new Token(tokenID, "train", "abcde124");
         token.isValid = true;
         
         instance.addToken(token);
@@ -74,7 +72,7 @@ public class TokenListTest {
         String tokenID = "sample_id";
         TokenList instance = new TokenList();
         
-        Token expResult = new Token();
+        Token expResult = new Token(tokenID, "train", "abcde124");
         expResult.tokenID = tokenID;
         expResult.isValid = true;
         

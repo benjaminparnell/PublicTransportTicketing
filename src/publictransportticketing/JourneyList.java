@@ -54,7 +54,7 @@ public class JourneyList {
 
     }
     
-    void addJourney(Location start, Location destination, DateTime startTime, DateTime endTime, Transport transport){
+    void addJourney(Stop start, Stop destination, DateTime startTime, DateTime endTime, Transport transport){
         //This is the same class as Account.createJourney();
         Journey journey = new Journey(start, destination, startTime, endTime, transport);
         this.journeyList.add(journey);

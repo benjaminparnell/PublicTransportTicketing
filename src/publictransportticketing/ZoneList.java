@@ -20,7 +20,7 @@ public class ZoneList{
     
     Zone findZone(String zoneID){
         //get a zone based on the zone ID.
-        Zone zone = null;
+        Zone zone;
         for(int i = 0; i < this.zones.size(); i++){
             zone = this.zones.get(i);
             if(zone.zoneName.equals(zoneID)){
@@ -28,5 +28,9 @@ public class ZoneList{
             }
         }
         return null;
+    }
+    
+    boolean checkIfExists(Zone zone){
+        return zones.contains(zone);
     }
 }
