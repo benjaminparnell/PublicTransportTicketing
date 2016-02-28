@@ -27,6 +27,7 @@ public class Account {
     Account(){
         this.currentBalance = 0.0f;
         this.journeyList = new JourneyList();
+        this.tokenList = new TokenList();
     }
     
     void getAccount(int accountID){

@@ -25,5 +25,9 @@ public class AccountList {
             }
         }
         return null;
-    } 
+    }
+    
+    public void addAccount(Account account) {
+        this.accountList.add(account);
+    }
 }
