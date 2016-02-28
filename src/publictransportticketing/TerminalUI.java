@@ -76,6 +76,8 @@ public class TerminalUI extends javax.swing.JFrame {
         textFieldUpdateBalance = new javax.swing.JTextField();
         buttonConfirmUpdate = new javax.swing.JButton();
         buttonCancelUpdate = new javax.swing.JButton();
+        panelUpdateBalanceOk = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         buttonInsertCard = new javax.swing.JButton();
         buttonRemoveCard = new javax.swing.JButton();
@@ -330,6 +332,31 @@ public class TerminalUI extends javax.swing.JFrame {
 
         panelTerminalScreen.add(panelUpdateBalance, "panelUpdateBalance");
 
+        panelUpdateBalanceOk.setBackground(new java.awt.Color(204, 255, 0));
+        panelUpdateBalanceOk.setName("panelUpdateBalanceOk"); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel4.setText("Balance Updated Successfully");
+
+        javax.swing.GroupLayout panelUpdateBalanceOkLayout = new javax.swing.GroupLayout(panelUpdateBalanceOk);
+        panelUpdateBalanceOk.setLayout(panelUpdateBalanceOkLayout);
+        panelUpdateBalanceOkLayout.setHorizontalGroup(
+            panelUpdateBalanceOkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUpdateBalanceOkLayout.createSequentialGroup()
+                .addContainerGap(148, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(134, 134, 134))
+        );
+        panelUpdateBalanceOkLayout.setVerticalGroup(
+            panelUpdateBalanceOkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUpdateBalanceOkLayout.createSequentialGroup()
+                .addGap(143, 143, 143)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(146, Short.MAX_VALUE))
+        );
+
+        panelTerminalScreen.add(panelUpdateBalanceOk, "panelUpdateBalanceOk");
+
         buttonInsertCard.setText("Insert Card");
         buttonInsertCard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -500,7 +527,21 @@ public class TerminalUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonReturnCardActionPerformed
 
     private void buttonConfirmUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConfirmUpdateActionPerformed
-        // TODO add your handling code here:
+        float totalInserted = moneySlot.checkAmount();
+        
+        foundAccount.updateBalance(totalInserted);
+        toggleCoinButtons(false);
+        textFieldUpdateBalance.setText("0.00");
+        moneySlot.dispenseChange();
+        
+        cardLayout.show(panelTerminalScreen, panelUpdateBalanceOk.getName());
+        
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            public void run() {
+                showOptions(foundAccount.profileName);
+            }
+        }, 2000);
     }//GEN-LAST:event_buttonConfirmUpdateActionPerformed
 
     private void buttonCancelUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelUpdateActionPerformed
@@ -648,6 +689,7 @@ public class TerminalUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelDefaultScreen;
     private javax.swing.JLabel labelErrorScreen;
@@ -660,6 +702,7 @@ public class TerminalUI extends javax.swing.JFrame {
     private javax.swing.JPanel panelShowBalance;
     private javax.swing.JPanel panelTerminalScreen;
     private javax.swing.JPanel panelUpdateBalance;
+    private javax.swing.JPanel panelUpdateBalanceOk;
     private javax.swing.JPanel panelUserDetailsScreen;
     private javax.swing.JTextField textFieldUpdateBalance;
     // End of variables declaration//GEN-END:variables

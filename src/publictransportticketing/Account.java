@@ -50,6 +50,10 @@ public class Account {
         return Math.round((this.currentBalance - price) * 100) / 100;
     }
     
+    void updateBalance(float amount) {
+        this.currentBalance += amount;
+    }
+    
     Journey createJourney(Stop start, Stop destination, DateTime startTime, DateTime endTime, Transport transport){
         //TODO: Figure out what this should do && return
         //Not sure if start, destination and transport should be types, they do not seem to link on UML.
