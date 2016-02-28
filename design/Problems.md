@@ -25,5 +25,6 @@ building it.
 
 - Account Class
   - `checkBalance` - parameter should be `float`
+  - `updateBalance` - missing from UML
 - Server Class
   - `findAccount` - missing
