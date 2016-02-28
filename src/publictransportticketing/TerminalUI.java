@@ -6,6 +6,8 @@
 package publictransportticketing;
 
 import java.awt.CardLayout;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -253,10 +255,12 @@ public class TerminalUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonInsertCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertCardActionPerformed
-        cardLayout.show(panelTerminalScreen, panelRetrieveDetailsScreen.getName());
-        
-        buttonInsertCard.setEnabled(false);
-        buttonRemoveCard.setEnabled(true);
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            public void run() {
+                showNewPanel();
+            }
+        }, 1000);
     }//GEN-LAST:event_buttonInsertCardActionPerformed
 
     private void buttonRemoveCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveCardActionPerformed
@@ -266,6 +270,12 @@ public class TerminalUI extends javax.swing.JFrame {
         buttonRemoveCard.setEnabled(false);
     }//GEN-LAST:event_buttonRemoveCardActionPerformed
 
+    private void showNewPanel() {
+        cardLayout.show(panelTerminalScreen, panelRetrieveDetailsScreen.getName());
+        
+        buttonInsertCard.setEnabled(false);
+        buttonRemoveCard.setEnabled(true);
+    }
     /**
      * @param args the command line arguments
      */
