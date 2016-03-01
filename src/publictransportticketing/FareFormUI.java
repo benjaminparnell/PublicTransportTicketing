@@ -126,9 +126,8 @@ public class FareFormUI extends javax.swing.JFrame {
 
         jLabel1.setText("Zones");
 
-        saveButton.setBackground(new java.awt.Color(0, 204, 0));
+        saveButton.setBackground(new java.awt.Color(204, 255, 204));
         saveButton.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        saveButton.setForeground(new java.awt.Color(255, 255, 255));
         saveButton.setText("Save");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,9 +135,8 @@ public class FareFormUI extends javax.swing.JFrame {
             }
         });
 
-        logoutButton.setBackground(new java.awt.Color(255, 51, 0));
+        logoutButton.setBackground(new java.awt.Color(255, 204, 204));
         logoutButton.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton.setText("Close");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

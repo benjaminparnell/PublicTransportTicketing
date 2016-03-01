@@ -55,9 +55,8 @@ public class ManagementLoginUI extends javax.swing.JFrame {
             }
         });
 
-        loginButton.setBackground(new java.awt.Color(0, 204, 0));
+        loginButton.setBackground(new java.awt.Color(204, 255, 204));
         loginButton.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        loginButton.setForeground(new java.awt.Color(255, 255, 255));
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

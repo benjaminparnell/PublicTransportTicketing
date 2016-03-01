@@ -82,9 +82,8 @@ public class ManagementUI extends javax.swing.JFrame {
         });
         fareTable.setViewportView(jTable1);
 
-        newFareButton.setBackground(new java.awt.Color(0, 204, 0));
+        newFareButton.setBackground(new java.awt.Color(204, 255, 204));
         newFareButton.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        newFareButton.setForeground(new java.awt.Color(255, 255, 255));
         newFareButton.setText("New Fare");
         newFareButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
