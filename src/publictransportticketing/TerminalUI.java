@@ -124,7 +124,7 @@ public class TerminalUI extends javax.swing.JFrame {
             .addGroup(panelDefaultScreenLayout.createSequentialGroup()
                 .addGap(134, 134, 134)
                 .addComponent(labelDefaultScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         panelTerminalScreen.add(panelDefaultScreen, "panelDefaultScreen");
@@ -150,7 +150,7 @@ public class TerminalUI extends javax.swing.JFrame {
             .addGroup(panelRetrieveDetailsScreenLayout.createSequentialGroup()
                 .addGap(129, 129, 129)
                 .addComponent(labelRetrieveDetailsScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         panelTerminalScreen.add(panelRetrieveDetailsScreen, "panelRetrieveDetailsScreen");
@@ -176,7 +176,7 @@ public class TerminalUI extends javax.swing.JFrame {
             .addGroup(panelErrorScreenLayout.createSequentialGroup()
                 .addGap(132, 132, 132)
                 .addComponent(labelErrorScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         panelTerminalScreen.add(panelErrorScreen, "panelErrorScreen");
@@ -190,8 +190,8 @@ public class TerminalUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel1.setText("Please select and option below");
 
-        buttonShowBalance.setBackground(new java.awt.Color(102, 204, 255));
-        buttonShowBalance.setForeground(new java.awt.Color(255, 255, 255));
+        buttonShowBalance.setBackground(new java.awt.Color(153, 204, 255));
+        buttonShowBalance.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         buttonShowBalance.setText("Show Balance");
         buttonShowBalance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,8 +199,8 @@ public class TerminalUI extends javax.swing.JFrame {
             }
         });
 
-        buttonUpdateBalance.setBackground(new java.awt.Color(102, 204, 255));
-        buttonUpdateBalance.setForeground(new java.awt.Color(255, 255, 255));
+        buttonUpdateBalance.setBackground(new java.awt.Color(153, 204, 255));
+        buttonUpdateBalance.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         buttonUpdateBalance.setText("Update Balance");
         buttonUpdateBalance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,8 +208,8 @@ public class TerminalUI extends javax.swing.JFrame {
             }
         });
 
-        buttonReturnCard.setBackground(new java.awt.Color(255, 51, 0));
-        buttonReturnCard.setForeground(new java.awt.Color(255, 255, 255));
+        buttonReturnCard.setBackground(new java.awt.Color(255, 204, 204));
+        buttonReturnCard.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         buttonReturnCard.setText("Return Card");
         buttonReturnCard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,7 +248,7 @@ public class TerminalUI extends javax.swing.JFrame {
                 .addComponent(buttonUpdateBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonReturnCard, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         panelTerminalScreen.add(panelUserDetailsScreen, "panelUserDetailsScreen");
@@ -267,8 +267,8 @@ public class TerminalUI extends javax.swing.JFrame {
         labelCurrentBalance.setText("£0.00");
         labelCurrentBalance.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        buttonReturnToDetails.setBackground(new java.awt.Color(0, 204, 0));
-        buttonReturnToDetails.setForeground(new java.awt.Color(255, 255, 255));
+        buttonReturnToDetails.setBackground(new java.awt.Color(204, 255, 204));
+        buttonReturnToDetails.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         buttonReturnToDetails.setText("Confirm");
         buttonReturnToDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -306,7 +306,7 @@ public class TerminalUI extends javax.swing.JFrame {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(labelCurrentBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addComponent(buttonReturnToDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
@@ -326,8 +326,8 @@ public class TerminalUI extends javax.swing.JFrame {
         textFieldUpdateBalance.setText("£0.00");
         textFieldUpdateBalance.setToolTipText("");
 
-        buttonConfirmUpdate.setBackground(new java.awt.Color(0, 204, 0));
-        buttonConfirmUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        buttonConfirmUpdate.setBackground(new java.awt.Color(204, 255, 204));
+        buttonConfirmUpdate.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         buttonConfirmUpdate.setText("Confirm");
         buttonConfirmUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -335,8 +335,8 @@ public class TerminalUI extends javax.swing.JFrame {
             }
         });
 
-        buttonCancelUpdate.setBackground(new java.awt.Color(255, 51, 0));
-        buttonCancelUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        buttonCancelUpdate.setBackground(new java.awt.Color(255, 204, 204));
+        buttonCancelUpdate.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         buttonCancelUpdate.setText("Cancel");
         buttonCancelUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,7 +380,7 @@ public class TerminalUI extends javax.swing.JFrame {
                 .addGroup(panelUpdateBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCancelUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonConfirmUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         panelTerminalScreen.add(panelUpdateBalance, "panelUpdateBalance");
@@ -405,7 +405,7 @@ public class TerminalUI extends javax.swing.JFrame {
             .addGroup(panelUpdateBalanceOkLayout.createSequentialGroup()
                 .addGap(143, 143, 143)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         panelTerminalScreen.add(panelUpdateBalanceOk, "panelUpdateBalanceOk");
@@ -473,9 +473,8 @@ public class TerminalUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelCoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(buttonTenPence, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(panelCoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(buttonFiftyPence, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                        .addComponent(buttonTwoPounds, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(buttonFiftyPence, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(buttonTwoPounds, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelCoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonOnePounds, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -553,13 +552,13 @@ public class TerminalUI extends javax.swing.JFrame {
         timer.schedule(new TimerTask() {
             public void run() {
                 retrieveTokenDetails();
+                buttonRemoveCard.setEnabled(true);
             }
         }, 2000);
         
         cardLayout.show(panelTerminalScreen, panelRetrieveDetailsScreen.getName());
         
         buttonInsertCard.setEnabled(false);
-        buttonRemoveCard.setEnabled(true);
     }//GEN-LAST:event_buttonInsertCardActionPerformed
 
     private void buttonRemoveCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveCardActionPerformed
