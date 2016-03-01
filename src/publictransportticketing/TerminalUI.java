@@ -567,7 +567,6 @@ public class TerminalUI extends javax.swing.JFrame {
 
     private void buttonShowBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowBalanceActionPerformed
         DecimalFormat df = new DecimalFormat("£0.00");
-        df.setRoundingMode(RoundingMode.FLOOR);
         df.setCurrency(Currency.getInstance(Locale.UK));
         
         float currentFloat = foundAccount.getCurrentBalance();
@@ -696,7 +695,6 @@ public class TerminalUI extends javax.swing.JFrame {
         float amount = moneySlot.checkAmount();
         
         DecimalFormat df = new DecimalFormat("£0.00");
-        df.setRoundingMode(RoundingMode.FLOOR);
         df.setCurrency(Currency.getInstance(Locale.UK));
         
         textFieldUpdateBalance.setText(df.format(amount));

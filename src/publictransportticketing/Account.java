@@ -31,7 +31,7 @@ public class Account {
     }
     
     float getCurrentBalance(){
-        return Math.round(this.currentBalance * 100) /100;
+        return this.currentBalance;
     }
     
     boolean validateToken(Token token){
