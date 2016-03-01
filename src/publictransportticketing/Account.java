@@ -27,6 +27,7 @@ public class Account {
     Account(){
         this.currentBalance = 0.0f;
         this.journeyList = new JourneyList();
+        this.tokenList = new TokenList();
     }
     
     float getCurrentBalance(){
@@ -43,6 +44,10 @@ public class Account {
     
     float checkBalance(float price){
         return Math.round((this.currentBalance - price) * 100) / 100;
+    }
+    
+    void updateBalance(float amount) {
+        this.currentBalance += amount;
     }
     
     Journey createJourney(Stop start, Stop destination, DateTime startTime, DateTime endTime, Transport transport){

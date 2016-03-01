@@ -9,10 +9,13 @@ public class Server {
     public RouteList allRoutes;
     public BaseFareList ListOfFares;
     public UserList users;
+    public AccountList allAccounts;
     
     public Server (UserList users) {
         this.users = users;
         this.ListOfFares = new BaseFareList();
+        this.allRoutes = new RouteList();
+        this.allAccounts = new AccountList();
     }
     
     User getUser(String userID, String password) throws UserNotFoundException, WrongPasswordException {
@@ -42,8 +45,11 @@ public class Server {
         //TODO: Figure out what this should do and return
     }
     
-    void validateToken(Account account, Token token){
-        //TODO: Figure out what this should do and return
+    Boolean validateToken(Account account, Token token){
+        return account.validateToken(token);
     }
     
+    Account findAccount(String accountId) {
+        return this.allAccounts.findAccount(accountId);
+    }
 }

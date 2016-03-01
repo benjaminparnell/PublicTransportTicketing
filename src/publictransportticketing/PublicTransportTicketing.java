@@ -12,20 +12,22 @@ import java.util.Vector;
  * @author rowellheria
  */
 public class PublicTransportTicketing extends javax.swing.JFrame {
-
     private final ManagementLoginUI managementLoginUi;
+    private final TerminalUI terminalUi;
     private final Server server;
-    
+
     /**
      * Creates new form PublicTransportTicketing
      */
     public PublicTransportTicketing() {
         initComponents();
+        this.setLocationRelativeTo(null);
         Vector<User> users = new Vector<User>();
         users.add(new User("bento", "Ben Parnell", "admin", "sea"));
         UserList userList = new UserList(users);
         this.server = new Server(userList);
         this.managementLoginUi = new ManagementLoginUI(this.server, this);
+        this.terminalUi = new TerminalUI(this.server, this);
     }
 
     /**
@@ -37,16 +39,22 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttonAddMoney = new javax.swing.JButton();
+        buttonAddNewFare = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Public Transport Ticketing");
+        setResizable(false);
 
-        jButton1.setText("Add Money");
+        buttonAddMoney.setText("Add Money");
+        buttonAddMoney.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddMoneyActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Add New Fare");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonAddNewFare.setText("Add New Fare");
+        buttonAddNewFare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddNewFareActionPerformed(evt);
             }
@@ -58,9 +66,9 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addComponent(jButton1)
+                .addComponent(buttonAddMoney)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(buttonAddNewFare)
                 .addGap(61, 61, 61))
         );
         layout.setVerticalGroup(
@@ -68,8 +76,8 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(126, 126, 126)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(buttonAddMoney)
+                    .addComponent(buttonAddNewFare))
                 .addContainerGap(145, Short.MAX_VALUE))
         );
 
@@ -80,6 +88,11 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
         this.setVisible(false);
         managementLoginUi.setVisible(true);
     }//GEN-LAST:event_buttonAddNewFareActionPerformed
+    
+    private void buttonAddMoneyActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setVisible(false);
+        terminalUi.setVisible(true);
+    }
 
     /**
      * @param args the command line arguments
@@ -88,7 +101,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -118,7 +131,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton buttonAddMoney;
+    private javax.swing.JButton buttonAddNewFare;
     // End of variables declaration//GEN-END:variables
 }

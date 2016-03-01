@@ -10,6 +10,7 @@ building it.
 - Account has an address, an occupation and a date of birth. The User class
     should have all of these things.
 - Account didn't have access to `TokenList`. Added it so we can validate a `Token`.
+- Server didn't have `AccountList`.
 - ManagementUI shouldn't really be in charge of login **and** other stuff. Added
     ManagementLoginUI to get round this.
 - Fare and Journey essentially serve the exact same purpose here?
@@ -27,3 +28,6 @@ building it.
 
 - Account Class
   - `checkBalance` - parameter should be `float`
+  - `updateBalance` - missing from UML
+- Server Class
+  - `findAccount` - missing
