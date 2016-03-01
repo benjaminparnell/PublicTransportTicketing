@@ -631,10 +631,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="buttonTenPence" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="buttonFiftyPence" alignment="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="buttonTwoPounds" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="buttonFiftyPence" alignment="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="buttonTwoPounds" alignment="1" min="-2" pref="60" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">

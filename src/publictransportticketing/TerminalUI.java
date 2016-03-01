@@ -553,13 +553,13 @@ public class TerminalUI extends javax.swing.JFrame {
         timer.schedule(new TimerTask() {
             public void run() {
                 retrieveTokenDetails();
+                buttonRemoveCard.setEnabled(true);
             }
         }, 2000);
         
         cardLayout.show(panelTerminalScreen, panelRetrieveDetailsScreen.getName());
         
         buttonInsertCard.setEnabled(false);
-        buttonRemoveCard.setEnabled(true);
     }//GEN-LAST:event_buttonInsertCardActionPerformed
 
     private void buttonRemoveCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveCardActionPerformed
