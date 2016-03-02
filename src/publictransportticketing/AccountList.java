@@ -18,6 +18,12 @@ public class AccountList {
         this.accountList = new Vector<Account>();
     }
     
+    /**
+     * Finds an account from it's accountId. If none is found,
+     * it will return null.
+     * @param accountId
+     * @return Account
+     */
     Account findAccount(String accountId) {
         for (Account accountSearch : this.accountList) {
             if (accountSearch.accountID.equalsIgnoreCase(accountId)) {
@@ -27,6 +33,10 @@ public class AccountList {
         return null;
     }
     
+    /**
+     * Adds an account to the account list.
+     * @param account 
+     */
     public void addAccount(Account account) {
         this.accountList.add(account);
     }
