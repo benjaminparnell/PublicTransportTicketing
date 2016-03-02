@@ -51,9 +51,20 @@ public class ManagementUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        newFareButton1 = new javax.swing.JButton();
         fareTable = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         newFareButton = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
+
+        newFareButton1.setBackground(new java.awt.Color(204, 255, 204));
+        newFareButton1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        newFareButton1.setText("New Fare");
+        newFareButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newFareButton1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,6 +102,15 @@ public class ManagementUI extends javax.swing.JFrame {
             }
         });
 
+        logoutButton.setBackground(new java.awt.Color(255, 255, 255));
+        logoutButton.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        logoutButton.setText("Logout");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,7 +120,8 @@ public class ManagementUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fareTable, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(logoutButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(newFareButton)))
                 .addContainerGap())
         );
@@ -110,7 +131,9 @@ public class ManagementUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(fareTable, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(newFareButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(newFareButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -120,6 +143,15 @@ public class ManagementUI extends javax.swing.JFrame {
     private void newFareButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newFareButtonActionPerformed
         new FareFormUI(this.server, this).setVisible(true);
     }//GEN-LAST:event_newFareButtonActionPerformed
+
+    private void newFareButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newFareButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newFareButton1ActionPerformed
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        this.setVisible(false);
+        this.loginUi.setVisible(true);
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,6 +184,8 @@ public class ManagementUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane fareTable;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton logoutButton;
     private javax.swing.JButton newFareButton;
+    private javax.swing.JButton newFareButton1;
     // End of variables declaration//GEN-END:variables
 }
