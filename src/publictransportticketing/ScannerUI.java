@@ -7,15 +7,18 @@ package publictransportticketing;
 
 /**
  *
- * @author swapnull
+ * @author rowellheria
  */
-public class ScannerUI extends javax.swing.JPanel {
-
+public class ScannerUI extends javax.swing.JFrame {
+    private final Server server;
+    private final PublicTransportTicketing mainUi;
     /**
      * Creates new form ScannerUI
      */
-    public ScannerUI() {
+    public ScannerUI(Server server, PublicTransportTicketing mainUi) {
         initComponents();
+        this.server = server;
+        this.mainUi = mainUi;
     }
 
     /**
@@ -27,63 +30,50 @@ public class ScannerUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        btn_scantoken = new javax.swing.JButton();
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        btn_scantoken.setText("Scan Token");
-        btn_scantoken.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_scantokenMouseClicked(evt);
-            }
-        });
-        btn_scantoken.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_scantokenActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(btn_scantoken)
-                .addContainerGap(218, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(btn_scantoken)
-                .addContainerGap(145, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_scantokenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_scantokenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_scantokenActionPerformed
-
-    private void btn_scantokenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_scantokenMouseClicked
-        Scanner scanner = new Scanner("1", new Location((float)1.3, (float)1.4), "stationary");
-        Token token = new Token("1", "weekly", "tr1234abcd");
-        scanner.scanToken(token);
-    }//GEN-LAST:event_btn_scantokenMouseClicked
-
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ScannerUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ScannerUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ScannerUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ScannerUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_scantoken;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

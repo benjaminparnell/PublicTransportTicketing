@@ -15,6 +15,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
     private final ManagementLoginUI managementLoginUi;
     private final TerminalUI terminalUi;
     private final Server server;
+    private final ScannerUI scannerUi;
 
     /**
      * Creates new form PublicTransportTicketing
@@ -28,6 +29,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
         this.server = new Server(userList);
         this.managementLoginUi = new ManagementLoginUI(this.server, this);
         this.terminalUi = new TerminalUI(this.server, this);
+        this.scannerUi = new ScannerUI(this.server, this);
     }
 
     /**
@@ -41,6 +43,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
 
         buttonAddMoney = new javax.swing.JButton();
         buttonAddNewFare = new javax.swing.JButton();
+        buttonScannerUi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Public Transport Ticketing");
@@ -60,25 +63,36 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
             }
         });
 
+        buttonScannerUi.setText("Scanner");
+        buttonScannerUi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonScannerUiActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(buttonAddMoney)
+                .addGap(59, 59, 59)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonScannerUi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonAddMoney, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(buttonAddNewFare)
-                .addGap(61, 61, 61))
+                .addGap(65, 65, 65))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
+                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonAddMoney)
                     .addComponent(buttonAddNewFare))
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addComponent(buttonScannerUi)
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,6 +102,11 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
         this.setVisible(false);
         managementLoginUi.setVisible(true);
     }//GEN-LAST:event_buttonAddNewFareActionPerformed
+
+    private void buttonScannerUiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonScannerUiActionPerformed
+        this.setVisible(false);
+        scannerUi.setVisible(true);
+    }//GEN-LAST:event_buttonScannerUiActionPerformed
     
     private void buttonAddMoneyActionPerformed(java.awt.event.ActionEvent evt) {
         this.setVisible(false);
@@ -133,5 +152,6 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAddMoney;
     private javax.swing.JButton buttonAddNewFare;
+    private javax.swing.JButton buttonScannerUi;
     // End of variables declaration//GEN-END:variables
 }
