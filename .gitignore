@@ -38,3 +38,23 @@ nbactions.xml
 .DS_Store
 .AppleDouble
 .LSOverride
+
+### MicrosoftOffice ###
+*.tmp
+
+# Word temporary
+~$*.doc*
+
+# Excel temporary
+~$*.xls*
+
+# Excel Backup File
+*.xlk
+
+# PowerPoint temporary
+~$*.ppt*
+
+
+### LibreOffice ###
+# LibreOffice locks
+.~lock.*#
