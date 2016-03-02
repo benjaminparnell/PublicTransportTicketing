@@ -21,7 +21,7 @@ public class BaseFareList {
     }
     
    /**
-    * Trys to find a Fare in fareList that has the fareID of fareID.
+    * Tries to find a Fare in fareList that has the fareID of fareID.
     * @param fareID
     * @return Fare
     */
@@ -36,6 +36,11 @@ public class BaseFareList {
         return null; 
     }
     
+    /**
+     * Returns a vector of valid fares.
+     * @param journey
+     * @return 
+     */
     public Vector<Fare> getValidFares(Journey journey){
         Fare fare;
         Vector<Fare> validFares = new Vector<Fare>();
@@ -51,16 +56,18 @@ public class BaseFareList {
     }
     
     /**
-     * Pass through to java.util.Vector
-     * @param id
-     * @param transport
-     * @param zones 
-     * @return boolean
+     * Adds base fare to the fare list.
+     * @param fare
+     * @return 
      */
     public boolean addBaseFare(Fare fare){
         return fareList.add(fare);
     }
     
+    /**
+     * Returns the table rows.
+     * @return 
+     */
     public Vector<Vector<Object>> getTableRows() {
         Vector<Vector<Object>> rows = new Vector<Vector<Object>>();
         

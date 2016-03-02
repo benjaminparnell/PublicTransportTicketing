@@ -18,14 +18,18 @@ public class CompanyList {
         this.companies = new Vector<Company>(); 
     }
     
+    /**
+     * Finds a company by it's name.
+     * @param companyName
+     * @return company || null
+     */
     Company findCompany(String companyName){
-        Company company = null;
-        for(int i=0; i < this.companies.size(); i++){
-            company = this.companies.get(i);
+        for (Company company : this.companies) {
             if(company.companyName.equalsIgnoreCase(companyName)){
                 return company;
             }
         }
+        
         return null;
     }
 }

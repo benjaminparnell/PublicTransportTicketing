@@ -20,6 +20,11 @@ public class JourneyList {
         this.journeyList = new Vector<Journey>();
     }
     
+    /**
+     * Find a journey by it's ID.
+     * @param journeyID
+     * @return journey
+     */
     Journey findJourney(String journeyID){
         Journey foundJourney = null;
         for (Journey journey : this.journeyList) {
@@ -30,6 +35,11 @@ public class JourneyList {
         return foundJourney;
     }
     
+    /**
+     * Find a journey by the date.
+     * @param date
+     * @return journey
+     */
     Journey findJourney(DateTime date){
         Journey foundJourney = null;
         for (Journey journey : this.journeyList) {
@@ -41,6 +51,10 @@ public class JourneyList {
 
     }
     
+    /**
+     * Returns the most recent journey.
+     * @return journey
+     */
     Journey getMostRecentJourney(){
         Journey mostRecentJourney = null;
         for (Journey journey : this.journeyList) {
@@ -54,16 +68,32 @@ public class JourneyList {
 
     }
     
+    /**
+     * Creates a journey and adds it to the list of journeys.
+     * @param start
+     * @param destination
+     * @param startTime
+     * @param endTime
+     * @param transport 
+     */
     void addJourney(Stop start, Stop destination, DateTime startTime, DateTime endTime, Transport transport){
         //This is the same class as Account.createJourney();
         Journey journey = new Journey(start, destination, startTime, endTime, transport);
         this.journeyList.add(journey);
     }
     
+    /**
+     * Adds a journey to the list of journeys.
+     * @param journey 
+     */
     void addJourney (Journey journey) {
         this.journeyList.add(journey);
     }
     
+    /**
+     * Gets the list of journeys that occurred today.
+     * @return 
+     */
     JourneyList getTodaysJourneys(){
         DateTime now = DateTime.now();
         DateTime todayStart = now.withTimeAtStartOfDay();
@@ -80,6 +110,10 @@ public class JourneyList {
         return todaysJourneys;
     }
     
+    /**
+     * Returns the size of the journey list.
+     * @return int
+     */
     int size () {
         return this.journeyList.size();
     }
