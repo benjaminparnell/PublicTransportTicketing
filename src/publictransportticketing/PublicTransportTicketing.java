@@ -44,6 +44,7 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
         buttonAddMoney = new javax.swing.JButton();
         buttonAddNewFare = new javax.swing.JButton();
         buttonScannerUi = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Public Transport Ticketing");
@@ -82,6 +83,10 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(buttonAddNewFare)
                 .addGap(65, 65, 65))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,9 +95,11 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonAddMoney)
                     .addComponent(buttonAddNewFare))
-                .addGap(55, 55, 55)
+                .addGap(24, 24, 24)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
                 .addComponent(buttonScannerUi)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,5 +160,6 @@ public class PublicTransportTicketing extends javax.swing.JFrame {
     private javax.swing.JButton buttonAddMoney;
     private javax.swing.JButton buttonAddNewFare;
     private javax.swing.JButton buttonScannerUi;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
