@@ -30,10 +30,19 @@ public class Account {
         this.tokenList = new TokenList();
     }
     
+    /**
+     * Returns the account balance.
+     * @return float
+     */
     float getCurrentBalance(){
         return this.currentBalance;
     }
     
+    /**
+     * Checks for the validity of the token.
+     * @param token
+     * @return 
+     */
     boolean validateToken(Token token){
         return tokenList.isValid(token);
     }
@@ -42,18 +51,37 @@ public class Account {
         //TODO: Figure out what this should do && return
     }
     
+    /**
+     * Checks if there is enough balance in the account.
+     * @param price
+     * @return float
+     */
     float checkBalance(float price){
-        return Math.round((this.currentBalance - price) * 100) / 100;
+        return (this.currentBalance - price);
     }
     
+    /**
+     * Update the current balance.
+     * @param amount 
+     */
     void updateBalance(float amount) {
         this.currentBalance += amount;
     }
     
+    /**
+     * Create a journey and add it to the account's journey list.
+     * @param start
+     * @param destination
+     * @param startTime
+     * @param endTime
+     * @param transport
+     * @return journey
+     */
     Journey createJourney(Stop start, Stop destination, DateTime startTime, DateTime endTime, Transport transport){
-        //TODO: Figure out what this should do && return
-        //Not sure if start, destination and transport should be types, they do not seem to link on UML.
-        return new Journey(start, destination, startTime, endTime, transport);
+        Journey journey = new Journey(start, destination, startTime, endTime, transport);
+        
+        this.journeyList.addJourney(journey);
+        return journey;
     }
     
 }
