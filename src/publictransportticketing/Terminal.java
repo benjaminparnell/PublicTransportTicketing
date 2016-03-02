@@ -11,7 +11,7 @@ package publictransportticketing;
  */
 public class Terminal {
     Location location;
-    int terminalID;
+    String terminalID;
     
     void scanToken(Token token){
         //TODO: Figure out what this should do and return

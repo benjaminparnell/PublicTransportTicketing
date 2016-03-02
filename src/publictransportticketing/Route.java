@@ -16,6 +16,14 @@ public class Route {
     Location finalDestination;
     StopList stopsOnRoute;
     
+    /**
+     * Creates a route.
+     * @param routeID
+     * @param routeType
+     * @param routeDestination
+     * @param finalDestination
+     * @param stopsOnRoute 
+     */
     public Route(String routeID, String routeType, Location routeDestination, Location finalDestination, StopList stopsOnRoute){
         this.routeID = routeID;
         this.routeType = routeType;
@@ -24,6 +32,10 @@ public class Route {
         this.stopsOnRoute = stopsOnRoute;
     }
     
+    /**
+     * Returns the last stop of the route.
+     * @return 
+     */
     Stop getLastStop(){
         return this.stopsOnRoute.allStops.get((stopsOnRoute.allStops.size() - 1));
     }

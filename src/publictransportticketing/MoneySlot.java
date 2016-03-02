@@ -13,17 +13,28 @@ public class MoneySlot {
     float amount;
     
     MoneySlot() {
-        amount = 0.0f;
+        this.amount = 0.0f;
     }
     
+    /**
+     * 
+     * @param inserted 
+     */
     void readInAmount(float inserted){
-        amount += inserted;
+        this.amount += inserted;
     }
     
+    /**
+     * Returns the current amount accumulated by the slot.
+     * @return 
+     */
     float checkAmount(){
         return this.amount;
     }
     
+    /**
+     * Dispenses change and resets the amount to zero.
+     */
     void dispenseChange(){
         this.amount = 0.0f;
     }
