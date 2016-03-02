@@ -5,6 +5,8 @@
  */
 package publictransportticketing;
 
+import java.awt.CardLayout;
+
 /**
  *
  * @author rowellheria
@@ -12,6 +14,8 @@ package publictransportticketing;
 public class ScannerUI extends javax.swing.JFrame {
     private final Server server;
     private final PublicTransportTicketing mainUi;
+    private final CardLayout cardLayout;
+    
     /**
      * Creates new form ScannerUI
      */
@@ -20,6 +24,8 @@ public class ScannerUI extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.server = server;
         this.mainUi = mainUi;
+        
+        this.cardLayout = (CardLayout)this.panelScannerScreen.getLayout();
     }
 
     /**
@@ -33,31 +39,109 @@ public class ScannerUI extends javax.swing.JFrame {
 
         panelScannerScreen = new javax.swing.JPanel();
         panelIdleScreen = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        panelGettingDetails = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        panelInvalidToken = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         buttonScanToken = new javax.swing.JButton();
         buttonBack = new javax.swing.JButton();
+        labelCurrentStop = new javax.swing.JLabel();
+        labelDestination = new javax.swing.JLabel();
+        buttonSubmit = new javax.swing.JButton();
+        choiceCurrentStop = new java.awt.Choice();
+        choiceDestination = new java.awt.Choice();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Conductor's Scanner");
 
         panelScannerScreen.setLayout(new java.awt.CardLayout());
 
+        panelIdleScreen.setBackground(new java.awt.Color(255, 255, 255));
         panelIdleScreen.setName("panelIdleScreen"); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Please Scan Token...");
 
         javax.swing.GroupLayout panelIdleScreenLayout = new javax.swing.GroupLayout(panelIdleScreen);
         panelIdleScreen.setLayout(panelIdleScreenLayout);
         panelIdleScreenLayout.setHorizontalGroup(
             panelIdleScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 404, Short.MAX_VALUE)
+            .addGroup(panelIdleScreenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panelIdleScreenLayout.setVerticalGroup(
             panelIdleScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 372, Short.MAX_VALUE)
+            .addGroup(panelIdleScreenLayout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         panelScannerScreen.add(panelIdleScreen, "panelIdleScreen");
 
+        panelGettingDetails.setBackground(new java.awt.Color(255, 255, 255));
+        panelGettingDetails.setName("panelGettingDetails"); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Retrieving Details. Please wait...");
+
+        javax.swing.GroupLayout panelGettingDetailsLayout = new javax.swing.GroupLayout(panelGettingDetails);
+        panelGettingDetails.setLayout(panelGettingDetailsLayout);
+        panelGettingDetailsLayout.setHorizontalGroup(
+            panelGettingDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGettingDetailsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelGettingDetailsLayout.setVerticalGroup(
+            panelGettingDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGettingDetailsLayout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(174, Short.MAX_VALUE))
+        );
+
+        panelScannerScreen.add(panelGettingDetails, "panelGettingDetails");
+
+        panelInvalidToken.setBackground(new java.awt.Color(255, 204, 204));
+        panelInvalidToken.setName("panelInvalidToken"); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("INVALID TOKEN");
+
+        javax.swing.GroupLayout panelInvalidTokenLayout = new javax.swing.GroupLayout(panelInvalidToken);
+        panelInvalidToken.setLayout(panelInvalidTokenLayout);
+        panelInvalidTokenLayout.setHorizontalGroup(
+            panelInvalidTokenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInvalidTokenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelInvalidTokenLayout.setVerticalGroup(
+            panelInvalidTokenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInvalidTokenLayout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(174, Short.MAX_VALUE))
+        );
+
+        panelScannerScreen.add(panelInvalidToken, "panelInvalidToken");
+
         buttonScanToken.setText("Scan Token");
+        buttonScanToken.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonScanTokenActionPerformed(evt);
+            }
+        });
 
         buttonBack.setText("Back");
         buttonBack.addActionListener(new java.awt.event.ActionListener() {
@@ -66,20 +150,32 @@ public class ScannerUI extends javax.swing.JFrame {
             }
         });
 
+        labelCurrentStop.setText("Current Stop");
+
+        labelDestination.setText("Destination");
+
+        buttonSubmit.setBackground(new java.awt.Color(204, 255, 204));
+        buttonSubmit.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        buttonSubmit.setText("Submit");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelCurrentStop)
+                            .addComponent(labelDestination)
+                            .addComponent(buttonSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                            .addComponent(choiceCurrentStop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(choiceDestination, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelScannerScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator1))
+                    .addComponent(jSeparator1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(buttonBack)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonScanToken)))
@@ -89,7 +185,18 @@ public class ScannerUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelScannerScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelScannerScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelCurrentStop)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(choiceCurrentStop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addComponent(labelDestination)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(choiceDestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -106,6 +213,10 @@ public class ScannerUI extends javax.swing.JFrame {
         this.setVisible(false);
         this.mainUi.setVisible(true);
     }//GEN-LAST:event_buttonBackActionPerformed
+
+    private void buttonScanTokenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonScanTokenActionPerformed
+        this.cardLayout.show(this.panelScannerScreen, this.panelGettingDetails.getName());
+    }//GEN-LAST:event_buttonScanTokenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,8 +249,18 @@ public class ScannerUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonBack;
     private javax.swing.JButton buttonScanToken;
+    private javax.swing.JButton buttonSubmit;
+    private java.awt.Choice choiceCurrentStop;
+    private java.awt.Choice choiceDestination;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel labelCurrentStop;
+    private javax.swing.JLabel labelDestination;
+    private javax.swing.JPanel panelGettingDetails;
     private javax.swing.JPanel panelIdleScreen;
+    private javax.swing.JPanel panelInvalidToken;
     private javax.swing.JPanel panelScannerScreen;
     // End of variables declaration//GEN-END:variables
 }
